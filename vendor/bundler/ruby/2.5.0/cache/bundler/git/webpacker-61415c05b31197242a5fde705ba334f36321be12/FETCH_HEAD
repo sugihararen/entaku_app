@@ -1,0 +1,33 @@
+4103f4b771439fa008de6403f5729fb519758ecb		branch '3-x-stable' of https://github.com/rails/webpacker
+0903bd38bd2686e31bffc0792d06548e9b4f8367		branch 'cache-control' of https://github.com/rails/webpacker
+0464a54b1657600c90bd444545a72cee7561e698		branch 'fix-erb-loader' of https://github.com/rails/webpacker
+bb132d591da35095e3246082cba3d693f847e0b5		branch 'master' of https://github.com/rails/webpacker
+3a825ddedc206248729a5328f3517ba8add20573		branch 'react-example' of https://github.com/rails/webpacker
+ceb88c729cabe83357b999811166120bef437b24		branch 'service-workers' of https://github.com/rails/webpacker
+5dd6f80ee17fc6eec7621ba4f5019bd9b70bc02c		branch 'subprocess' of https://github.com/rails/webpacker
+c152701b2dd26bdf33bd9b1c0f397d4f1a03894a		branch 'webpack-config' of https://github.com/rails/webpacker
+5583a269e354cb81291dbc356eccbf647c8a0cdb	not-for-merge	tag 'v1.0.0' of https://github.com/rails/webpacker
+3c488f9f4022735a37093a1c1718eb9a7d720102	not-for-merge	tag 'v1.1.0' of https://github.com/rails/webpacker
+56bd687798b624f9e0cea7b8fe3c89923a79ea63	not-for-merge	tag 'v1.2.0' of https://github.com/rails/webpacker
+55bd71de20eb16563f41fc7a80e9b01e6476b6bb	not-for-merge	tag 'v2.0.0' of https://github.com/rails/webpacker
+29bf0bd0a21fbdbcb1d19c9be4687df7cea3274d	not-for-merge	tag 'v3.0.0' of https://github.com/rails/webpacker
+5ce80c84cc389aee057484ec55807f976d8a803f	not-for-merge	tag 'v3.0.1' of https://github.com/rails/webpacker
+4659aef5111fbd56f56dc3913b2b279999afdee2	not-for-merge	tag 'v3.0.2' of https://github.com/rails/webpacker
+659a6a185e634838a68a99c58ee87a600e70fa88	not-for-merge	tag 'v3.1.0' of https://github.com/rails/webpacker
+d7b9dd09dc2de1a3445c57f42e3746e3045e6745	not-for-merge	tag 'v3.1.1' of https://github.com/rails/webpacker
+cdde25b8e39cc99e668130c491102389805202a1	not-for-merge	tag 'v3.2.0' of https://github.com/rails/webpacker
+36f22d27c47dc7b93bb048361b1d1d0917bc2f5e	not-for-merge	tag 'v3.2.1' of https://github.com/rails/webpacker
+4dacd9dd83a32230691d69babdb67ad27ef30757	not-for-merge	tag 'v3.2.2' of https://github.com/rails/webpacker
+bf19f39e643e787ea0a1897b7b32c09de95f4da0	not-for-merge	tag 'v3.3.0' of https://github.com/rails/webpacker
+d2040a0952754f53c87bd92553a549555cf5be2f	not-for-merge	tag 'v3.3.1' of https://github.com/rails/webpacker
+cb1f565fe8a9e26d9bb02e5dcbc7de7b5f9dc12d	not-for-merge	tag 'v3.4.0' of https://github.com/rails/webpacker
+ce2a48cab3cd6d5d1f66aebf4aa482e03cad0deb	not-for-merge	tag 'v3.4.1' of https://github.com/rails/webpacker
+42231afeb408d184ff31fe78ae8114b66f3cad34	not-for-merge	tag 'v3.4.3' of https://github.com/rails/webpacker
+ba92de3fa9b251b253154bbd626f8640ae6ea1de	not-for-merge	tag 'v3.5.0' of https://github.com/rails/webpacker
+ce3b3b2a76e414aedbcae4cd7da72901f898dde7	not-for-merge	tag 'v3.5.1' of https://github.com/rails/webpacker
+ed2c2cedb1b3f62b1e86caef42d2e4ff918b2838	not-for-merge	tag 'v3.5.2' of https://github.com/rails/webpacker
+8a061d137d0b8f9030f5f8d6fdcfffa1d011c376	not-for-merge	tag 'v3.5.3' of https://github.com/rails/webpacker
+e9e422bd749497c630c0d0e52d7a5499bc0a3987	not-for-merge	tag 'v3.5.5' of https://github.com/rails/webpacker
+cb1db24b639fa7cc3eff5da29417f1a436943c79	not-for-merge	tag 'v4.0.0.pre.3' of https://github.com/rails/webpacker
+d758c6435b07f882dade3c50cfaab056f49ed5f7	not-for-merge	tag 'v4.0.0.pre.pre.1' of https://github.com/rails/webpacker
+5384b1311306b837fba59b7d2b0e504af031b38f	not-for-merge	tag 'v4.0.0.pre.pre.2' of https://github.com/rails/webpacker
