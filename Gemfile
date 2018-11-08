@@ -63,4 +63,7 @@ gem 'pg'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
-gem 'webpacker', github: "rails/webpacker"
+gem 'webpacker'
+
+
+gem "jquery-rails"

@@ -8,3 +8,11 @@
 // layout file, like app/views/layouts/application.html.erb
 
 console.log('Hello World from Webpacker')
+
+import 'src/application' // application.scss の読み込み
+import 'bootstrap/dist/js/bootstrap'
+import $ from 'jquery'
+
+$(function() {
+    $("#hoge").css("color","red")
+});
