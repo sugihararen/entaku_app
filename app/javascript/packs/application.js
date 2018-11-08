@@ -14,5 +14,5 @@ import 'bootstrap/dist/js/bootstrap'
 import $ from 'jquery'
 
 $(function() {
-    $("#hoge").css("color","red")
+    
 });
