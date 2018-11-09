@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'home/top'
   
   #ログイン画面
-  get "login" => "users#login_form"
-  
+  get "/" => "users#login_form"
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
