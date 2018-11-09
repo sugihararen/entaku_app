@@ -1,8 +1,23 @@
-
-
-
-.form-body span {
+//ログイン画面
+.form-body  {
     color: white;
     font-size: 20px;
+    padding-top: 10%;
+    height: 500px;
 }
 
+.sign_up {
+    background-color: #E38B70;
+    color: white;
+    width: 150px;
+    height: 60px;
+    border-radius: 30px;
+}
+
+.login {
+    background-color: #54C3F1;
+    color: white;
+    width: 150px;
+    height: 60px;
+    border-radius: 30px;
+}
