@@ -2,10 +2,21 @@
   <div class="text-center">
     <div class="form users-form">
       <div class="form-body">
-        <p>ユーザー名<input class ="border border-dark ml-5 "  type="text" ></p>
-        <p>メールアドレス<input class ="border border-dark ml-5" type="text"></p>
-        <p>パスワード<input class ="border border-dark ml-5" type="password"></p>
+        
+        <!-- エラーメッセージ -->
+        <% @user.errors.full_messages.each do |message| %>
+          <div class="form-error">
+            <%= message %>
+          </div>
+        <% end %>
+
+       <%= form_tag("/users/create") do %>
+        <p>ユーザー名<input class ="border border-dark ml-5 "  name = "name" value = "<%= @user.name =%>" ></p>
+        <p>メールアドレス<input class ="border border-dark ml-5 email" name = "email" value="<%= @user.email %>"></p>
+        <p>パスワード<input class ="border border-dark ml-5" type="password" name = "password" value="<%= @user.password %>"></p>
         <input class = "sign_up border border-dark mt-5" type="submit" value="新規登録" >
+       <% end %>
+
       </div>
     </div>
   </div>

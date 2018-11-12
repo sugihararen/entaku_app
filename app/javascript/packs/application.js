@@ -10,10 +10,14 @@
 console.log('Hello World from Webpacker')
 
 import 'src/application' // application.scss の読み込み
-import 'src/users'      // users.scss の読み込み
+import 'src/users'       // users.scss の読み込み
+import 'src/home'        //home.scssの読み込み
 import 'bootstrap/dist/js/bootstrap'
 import $ from 'jquery'
 
+//フラッシュメッセージ
 $(function() {
-    
+    setTimeout(function(){
+      $('.flash').fadeOut("slow")
+    },800);
 });

@@ -2,10 +2,21 @@
   <div class="text-center">
     <div class="form users-form">
       <div class="form-body">
-        <p>ユーザー名<input class ="border border-dark ml-5"  type="text"></p>
-        <p>パスワード<input class ="border border-dark ml-5 mt-3" type="password"></p>
+
+       <!-- エラーメッセージ -->
+       <% if @error_message %>
+          <div class="form-error">
+            <%= @error_message %>
+          </div>
+       <% end %>
+        
+       <%= form_tag("/login") do %>
+        <p>ユーザー名<input class ="border border-dark ml-5" name = "name" value = "<%= @name %>"></p>
+        <p>パスワード<input class ="border border-dark ml-5 mt-3" type="password" name = "password" value = "<%= @password %>"></p>
+        <input class = "login border border-white mt-5" type="submit" value="ログイン" >
+       <% end %>
         <input class = "sign_up border border-dark mt-5" type="submit" value="新規登録" onClick="location.href='/signup'" >
-        <input class = "login border border-white ml-5 mt-5" type="submit" value="ログイン" >
+
       </div>
     </div>
   </div>
