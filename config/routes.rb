@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
-  get 'users/index'
- 
-  
   #ログイン画面
-  post "login" => "users#login"
-  get "login" => "users#login_form"
+  post "login" => "sessions#create"
+  get  "login" =>  "sessions#new"
+  #delete "logout" => "sessions#destroy"
 
   #新規登録画面
   get "signup" => "users#new"
@@ -12,8 +10,11 @@ Rails.application.routes.draw do
   #ユーザー登録
   post "users/create" => "users#create"
 
-  #トップ画面
-  get "top" => "home#top" 
+  #ユーザー一覧
+  get "users/index" => "users#index"
+
+   #トップ画面予約一覧
+   get "home/index" => "home#index" 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
