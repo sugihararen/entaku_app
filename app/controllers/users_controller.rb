@@ -1,9 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user,{only:[:index,:create]}
-
-  include ActiveModel::ForbiddenAttributesProtection
-  
-
+  # before_action :authenticate_user,{only:[:index,:create]}
   #新規登録画面
   def new
     @user = User.new
@@ -11,19 +7,24 @@ class UsersController < ApplicationController
 
   #ユーザー登録
   def create
-    @user = User.new(name: params[:name],email: params[:email],password: params[:password])
-    if  @user.save
+    @user = User.new(user_params)
+    if @user.save
+      session[:user_id] = @user.id
       flash[:notice] = "ユーザー登録が完了しました"
-      redirect_to("/home/index")
+      redirect_to home_index_url
     else
-      render "new"
+      render :new
     end
   end
 
-  
   #ユーザー一覧画面
   def index
 
+  end
+  
+  private
+  def user_params
+    params.require(:user).permit(:name,:email, :password,:password_confirmation)
   end
 
 end

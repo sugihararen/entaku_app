@@ -2,7 +2,7 @@
   <div class="text-center">
     <div class="form users-form">
       <div class="form-body">
-        
+
         <!-- エラーメッセージ -->
         <% @user.errors.full_messages.each do |message| %>
           <div class="form-error">
@@ -10,12 +10,25 @@
           </div>
         <% end %>
 
-       <%= form_tag("/users/create") do %>
-        <p>ユーザー名<input class ="border border-dark ml-5 "  name = "name" value = "<%= @user.name =%>" ></p>
-        <p>メールアドレス<input class ="border border-dark ml-5 email" name = "email" value="<%= @user.email %>"></p>
-        <p>パスワード<input class ="border border-dark ml-5" type="password" name = "password" value="<%= @user.password %>"></p>
-        <input class = "sign_up border border-dark mt-5" type="submit" value="新規登録" >
-       <% end %>
+        <%= form_with url: signup_path, model: @user, local: true do |f| %>
+          <p>
+           <%= f.label :name, 'ユーザー名' %>
+           <%= f.text_field :name, class: 'border border-dark ml-5' %>
+          </p>
+          <p>
+           <%= f.label :email, 'メールアドレス' %>
+           <%= f.text_field :email, class: 'border border-dark ml-5 email' %>
+          </p>
+          <p>
+           <%= f.label :password, 'パスワード' %>
+           <%= f.password_field :password, class: 'border border-dark ml-5' %>
+          </p>
+          <p>
+           <%= f.label :password_confirmation, "パスワード再入力" %>
+           <%= f.password_field :password_confirmation, class: 'border border-dark ml-5 password_confirmation' %>
+          </p>
+          <%= f.submit '新規登録', class: 'sign_up border border-dark mt-5' %>
+        <% end %>
 
       </div>
     </div>

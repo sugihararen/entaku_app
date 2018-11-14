@@ -8,10 +8,10 @@
 
 .sign_up {
     background-color: #E38B70;
-    color: white;
     width: 150px;
     height: 60px;
     border-radius: 30px;
+    text-align: center;
 }
 
 .login {
@@ -21,3 +21,7 @@
     height: 60px;
     border-radius: 30px;
 }
+
+.field_with_errors {
+    display: inline;
+  }
