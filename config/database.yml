@@ -29,3 +29,4 @@ production:
   url: <%= ENV['DATABASE_URL'] %>
   database: entaku_production
   username: entaku
+  # password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
