@@ -13,7 +13,7 @@
    <div class="header border border-dark">
     <div class="header-logo">円卓予約</div>
 　   <ul class = "header-menus">
-     <% if @current_user %>
+     <% if session[:user_id] %>
       <li >
       <!-- ログアウト -->
       </li>

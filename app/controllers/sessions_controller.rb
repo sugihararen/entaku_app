@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-  
   #ログインページ
   def new
   end

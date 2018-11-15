@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   # before_action :authenticate_user,{only:[:index,:create]}
+  
   #新規登録画面
   def new
     @user = User.new
