@@ -8,9 +8,9 @@ default: &default
   adapter: postgresql
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: user
-  password: pass
   host: localhost
+  # username: user
+  # password: pass
   timeout: 5000
 
 development:
@@ -26,5 +26,6 @@ test:
 
 production:
   <<: *default
-  # url: <%= ENV['DATABASE_URL'] %>
-  database: hoge_production
+  url: <%= ENV['DATABASE_URL'] %>
+  database: entaku_production
+  username: entaku
