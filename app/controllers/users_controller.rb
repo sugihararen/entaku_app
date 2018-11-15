@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 
   #ユーザー一覧画面
   def index
-
+    @user = User.all
   end
   
   private
