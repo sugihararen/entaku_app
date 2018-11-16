@@ -1,0 +1,94 @@
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  Exclude:
+    - db/**/*
+    - tmp/**/*
+    - vendor/**/*
+    - lib/geohash.rb
+    - lib/manager/geo.rb
+    - bin/spring
+  TargetRubyVersion: 2.5.1
+
+  Rails:
+    Enabled: true
+
+# Offense count: 326
+# Configuration parameters: AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
+# URISchemes: http, https
+Metrics/LineLength:
+  Exclude:
+    - 'Rakefile'
+    - '**/*/.rake'
+    - 'spec/**/*.rb'
+  Max: 275
+
+Metrics/MethodLength:
+  Max: 150 # remove this after refacotr
+
+PredicateName:
+  NamePrefixBlacklist:
+    - has_
+
+MixinUsage:
+  Include:
+    - app/**/*.rb
+    
+Naming/UncommunicativeMethodParamName:
+  MinNameLength: 1
+
+Naming/AccessorMethodName:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/AsciiComments:
+  Enabled: false
+
+# Offense count: 7
+Metrics/PerceivedComplexity:
+  Max: 18
+
+# Offense count: 45
+# Configuration parameters: CountComments.
+Metrics/MethodLength:
+  Max: 106
+
+# Offense count: 45
+# Configuration parameters: CountComments.
+Metrics/MethodLength:
+  Max: 109
+
+# Offense count: 1
+# Configuration parameters: CountKeywordArgs.
+Metrics/ParameterLists:
+  Max: 7
+
+# Offense count: 7
+Metrics/CyclomaticComplexity:
+  Max: 15
+
+# Offense count: 4
+# Configuration parameters: CountComments.
+Metrics/ClassLength:
+  Max: 140
+
+# Offense count: 1
+# Configuration parameters: CountBlocks.
+Metrics/BlockNesting:
+  Max: 4
+
+# Offense count: 40
+# Configuration parameters: CountComments, ExcludedMethods.
+Metrics/BlockLength:
+  Max: 111
+
+# Offense count: 53
+Metrics/AbcSize:
+  Max: 109
+
+# Offense count: 1
+Lint/HandleExceptions:
+  Exclude:
+    - 'config/unicorn.rb'
