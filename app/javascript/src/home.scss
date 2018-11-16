@@ -1,0 +1,49 @@
+//共通レイアウト
+body {
+    background-color: #54C3F1;
+    padding-top: 50px;
+}
+
+.header-logo{
+   font-size: 35px;
+   float: left;
+   color: #54C3F1;
+   line-height: 100px;
+   padding-left: 15px;
+ }
+
+ .header {
+   background-color: white;
+   height: 100px;
+   width: 100%;
+ }
+
+ .header-menus {
+     float: right;
+     color: #54C3F1;
+ }
+
+ .header-menus li {
+    float: left;
+    font-size: 20px;
+    padding-right: 15px;
+    list-style: none;
+    line-height: 100px;
+  }
+
+ //フォーム
+ .form-error {
+    color: #ff4d75;
+  }
+  
+ //サクセスメッセージ
+.flash {
+    padding: 10px 0;
+    color: white;
+    background: rgb(251, 170, 88);
+    text-align: center;
+    width: 100%;
+    border-radius: 0 0 2px 2px;
+    font-size: 14px;
+  }
+

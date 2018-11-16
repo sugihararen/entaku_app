@@ -1,15 +1,34 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>EntakuApp</title>
+    <title>EntakuApp</title> 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application' %>
   </head>
-
   <body>
-    <%= yield %>
+   <div class="header border border-dark">
+    <div class="header-logo">円卓予約</div>
+　   <ul class = "header-menus">
+     <% if session[:user_id] %>
+      <li >
+      <!-- ログアウト -->
+      </li>
+      <% else %>
+      <% end %>
+     </ul> 
+   </div><!--
+
+　  <!--サクセスメッセージ -->
+    <% if flash[:notice] %>
+    <div class="flash">
+     <%= flash[:notice] %>
+    </div>
+   <% end %>
+
+   <%= yield %>
   </body>
 </html>

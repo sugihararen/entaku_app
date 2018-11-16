@@ -7,4 +7,16 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
-console.log('Hello World from Webpacker')
+import 'src/application' // application.scss の読み込み
+import 'src/users'       // users.scss の読み込み
+import 'src/home'        //home.scssの読み込み
+import 'src/sessions'    //sessions.scssの読み込み
+import 'bootstrap/dist/js/bootstrap'
+import $ from 'jquery'
+
+//フラッシュメッセージ
+$(function() {
+    setTimeout(function(){
+      $('.flash').fadeOut("slow")
+    },800);
+});

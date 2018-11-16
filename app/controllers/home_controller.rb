@@ -1,4 +1,8 @@
+# frozen_string_literal: true
+
 class HomeController < ApplicationController
-  def top
-  end
+  before_action :authenticate_user, only: [:top]
+
+  # トップ画面
+  def index; end
 end
