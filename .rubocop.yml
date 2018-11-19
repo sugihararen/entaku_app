@@ -14,8 +14,6 @@ AllCops:
   Rails:
     Enabled: true
 
-  TargetRubyVersion: 2.5.1
-
 # Offense count: 326
 # Configuration parameters: AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
 # URISchemes: http, https
