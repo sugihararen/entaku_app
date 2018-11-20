@@ -15,8 +15,8 @@ import 'bootstrap/dist/js/bootstrap'
 import $ from 'jquery'
 
 //フラッシュメッセージ
-$(function() {
+/*(function() {
     setTimeout(function(){
       $('.flash').fadeOut("slow")
     },800);
-});
+});*/

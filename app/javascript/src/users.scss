@@ -31,8 +31,11 @@
     margin-right: 58px;
 }
 
-
 .field_with_errors {
     display: inline;
   }
   
+  //フォーム
+ .form-error {
+    color: #ff4d75;
+  }
