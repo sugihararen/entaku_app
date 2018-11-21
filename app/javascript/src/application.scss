@@ -2,7 +2,6 @@
 
 body {
     background-color: #54C3F1;
-    padding-top: 50px;
 }
 
 .header-logo{
@@ -14,6 +13,7 @@ body {
  }
 
  .header {
+   margin-top: 50px;
    background-color: white;
    height: 100px;
    width: 100%;
@@ -22,6 +22,7 @@ body {
  .header-menus {
      float: right;
      list-style-type: none;
+     margin-bottom: 0;
  }
 
  .menu  {
@@ -41,7 +42,9 @@ body {
     width: 100%;
     border-radius: 0 0 2px 2px;
     font-size: 14px;
-  }
+    clear: both;
+    position: absolute;
+}
 
 
  
