@@ -1,6 +1,10 @@
-<% today = Date.today%>
-<table class = "mx-auto" >
-  <div class = "year_month text-center "><%= today.strftime('%Y年%m月')%></div>
+<div class = "calendar mx-auto">
+<table>
+  <div class = "year_month text-center ">
+  <%= @today.strftime('%Y年%m月')%>
+  <a href="#" class = "last_month"><</a>
+  <a href="#" class = "next_month">></a>
+  </div>
   <tr>
     <th>月</th>
     <th>火</th>
@@ -11,8 +15,8 @@
     <th>日</th>
   </tr>
   <tr>
-<% month = today.strftime('%m')%>
-<% d = today.at_beginning_of_month.at_beginning_of_week%>
+<% month = @today.strftime('%m')%>
+<% d = @today.at_beginning_of_month.at_beginning_of_week%>
 <% 1.upto(5).each do|i|%>
   <tr>
 <% (d..d.end_of_week).each do|c|%>
@@ -22,3 +26,4 @@
 <% d = d + 1.week %>
 <% end %>
 </table>
+</div>
