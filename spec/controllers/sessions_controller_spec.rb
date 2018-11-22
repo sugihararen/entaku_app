@@ -8,8 +8,7 @@ RSpec.describe SessionsController, type: :controller do
 
     context '正常なログイン情報でログインした場合' do
       before do
-        user = create(:user)
-        allow(User).to receive(:find_by).and_return(user)
+        create(:user)
       end
 
       it 'TOP画面へ遷移されること' do
