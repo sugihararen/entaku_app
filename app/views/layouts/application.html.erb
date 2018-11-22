@@ -15,20 +15,18 @@
 　   <ul class = "header-menus">
      <% if session[:user_id] %>
       <li >
-      <!-- ログアウト -->
+      <%= link_to("ログアウト",logout_path, :class => 'menu', :method => :delete ) %>
       </li>
       <% else %>
       <% end %>
      </ul> 
    </div><!--
-
 　  <!--サクセスメッセージ -->
     <% if flash[:notice] %>
-    <div class="flash">
+    <div class="flash text-center">
      <%= flash[:notice] %>
     </div>
    <% end %>
-
    <%= yield %>
   </body>
 </html>

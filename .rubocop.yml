@@ -8,6 +8,7 @@ AllCops:
     - lib/geohash.rb
     - lib/manager/geo.rb
     - bin/spring
+    - node_modules/**/*
   TargetRubyVersion: 2.5.1
 
   Rails:

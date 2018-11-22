@@ -1,10 +1,12 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  # ログイン画面
+  # ログイン
   post 'login' => 'sessions#create'
   get  'login' => 'sessions#new'
-  # delete "logout" => "sessions#destroy"
+  
+  #ログアウト
+  delete "logout" => "sessions#destroy"
 
   # 新規登録画面
   get 'signup' => 'users#new'

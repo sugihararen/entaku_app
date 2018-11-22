@@ -8,8 +8,7 @@ RSpec.describe SessionsController, type: :controller do
 
     context '正常なログイン情報でログインした場合' do
       before do
-        user = create(:user)
-        allow(User).to receive(:find_by).and_return(user)
+        create(:user)
       end
 
       it 'TOP画面へ遷移されること' do
@@ -21,6 +20,15 @@ RSpec.describe SessionsController, type: :controller do
       it 'ログイン画面へ遷移' do
         expect(subject).to render_template :new
       end
+    end
+  end
+
+  describe 'sesions#destroy' do
+   context 'ログアウト'
+    it 'ログイン画面へ遷移' do
+      session = {'user_id' => 'nil'}  
+      add_session(session)
+      expect(delete :destroy).to redirect_to login_url
     end
   end
 end
