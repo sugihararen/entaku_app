@@ -13,10 +13,13 @@ import 'src/home'        //home.scssの読み込み
 import 'src/sessions'   //sessions.scssの読み込み
 import 'bootstrap/dist/js/bootstrap'
 import $ from 'jquery'
+//import 'fullcalendar'  //カレンダー
 
 //フラッシュメッセージ
 $(function() {
-    setTimeout(function(){
-      $('.flash').fadeOut("slow")
-    },800);
+  setTimeout(function(){
+    $('.flash').fadeOut("slow")
+  },800);
+
 });
+

@@ -1,2 +1,24 @@
-
-
+<% today = Date.today%>
+<table class = "mx-auto" >
+  <div class = "year_month text-center "><%= today.strftime('%Y年%m月')%></div>
+  <tr>
+    <th>月</th>
+    <th>火</th>
+    <th>水</th>
+    <th>木</th>
+    <th>金</th>
+    <th>土</th>
+    <th>日</th>
+  </tr>
+  <tr>
+<% month = today.strftime('%m')%>
+<% d = today.at_beginning_of_month.at_beginning_of_week%>
+<% 1.upto(5).each do|i|%>
+  <tr>
+<% (d..d.end_of_week).each do|c|%>
+    <th><%= (c.strftime('%m') == month)? c.strftime('%d'): "  "%></th>
+<% end %>
+  </tr>
+<% d = d + 1.week %>
+<% end %>
+</table>
