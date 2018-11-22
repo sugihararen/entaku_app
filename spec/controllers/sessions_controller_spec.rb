@@ -23,4 +23,13 @@ RSpec.describe SessionsController, type: :controller do
       end
     end
   end
+
+  describe 'sesions#destroy' do
+   context 'ログアウト'
+    it 'ログイン画面へ遷移' do
+      session = {'user_id' => 'nil'}  
+      add_session(session)
+      expect(delete :destroy).to redirect_to login_url
+    end
+  end
 end
