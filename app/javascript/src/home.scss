@@ -1,24 +1,40 @@
  .calendar{
-     width: 300px;
+     width: 641px;
+     height: 518px;
      clear: both;
-     margin-top: 100px;
+     margin-top: 50px;
      background-color: white;
      color: black;
  }
+
  .year_month{
-     font-size: 35px;
-    
-    
+     font-size: 35px; 
+     color: white;
+     background-color: #54C3F1;  
  }
-  
-table{
-    font-size: 30px;
+ 
+ th{
+    font-weight: 100;
+    padding-bottom: 0px;
+ }
+ 
+
+.day {
+    padding-right: 69px;
+    padding-bottom: 62px;
 }
 
 .last_month {
-    color: black;
+    color: white;
 }
 
 .next_month {
-    color: black;
+    color: white;
+}
+
+.newevent {
+    width: 3rem; 
+    height: 3rem;
+    background-color: #E38B70;
+    margin-left: 75%;
 }

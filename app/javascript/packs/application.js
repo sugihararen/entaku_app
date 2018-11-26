@@ -16,10 +16,10 @@ import $ from 'jquery'
 //import 'fullcalendar'  //カレンダー
 
 //フラッシュメッセージ
-$(function() {
-  setTimeout(function(){
-    $('.flash').fadeOut("slow")
-  },800);
+ $(function() {
+   setTimeout(function(){
+     $('.flash').fadeOut("slow")
+   },800);
 
-});
+ });
 
