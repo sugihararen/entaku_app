@@ -5,19 +5,9 @@ class HomeController < ApplicationController
   # トップ画面
   def index
     @today = Date.today
+    if params[:date]
+      @today = (params[:date]).to_date
+    end
   end
-
-  def next_month
-    @today = (params[:date]).to_date
-    @today = @today.next_month
-    render "index"
-  end
-
-  def last_month
-    @today = (params[:date]).to_date
-    @today = @today.last_month
-    render "index"
-  end
-
 
 end

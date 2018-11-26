@@ -1,9 +1,10 @@
 <div class = "calendar mx-auto ">
 <table>
   <div class = "year_month text-left">
+  <%= link_to("今日",home_index_path, :class => 'today') %>
+  <%= link_to("<",home_index_path(date: @today.last_month), :class => 'last_month') %>
+  <%= link_to(">",home_index_path(date: @today.next_month), :class => 'next_month') %>
   <%= @today.strftime('%Y年%m月')%>
-  <%= link_to("<",home_last_month_path(date: Date.today), :class => 'last_month') %>
-  <%= link_to(">",home_next_month_path(date: Date.today), :class => 'next_month') %>
   </div>
   <tr class = "border-top border-left border-dark" >
     <th class = "border-right border-dark">月</th>
