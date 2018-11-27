@@ -1,11 +1,10 @@
  .calendar{
      width: 700px;
      height: 518px;
-     clear: both;
      margin-top: 50px;
+     padding-left: 0px;
      background-color: white;
      color: black;
-     display: inline-block;
  }
 
  .year_month{
@@ -51,21 +50,21 @@ th{
     width: 3rem; 
     height: 3rem;
     background-color: #E38B70;
-    margin-left: 75%;
+    margin-left: 80%;
+    margin-top: 10px;
 }
 
 .day_show {
     background-color: white;
-    margin-top: 50px;
-    width: 33px;
-    height: 150px;
-    display: inline-block;
+    margin-top:87px;
+    padding-right: 0px;
+    width: 210px;
+    height: 481px;
 }
 
 .new_event_form {
     background-color: white;
-    margin-top: 50px;
-    width: 335px;
+    margin-top: 87px;
+    width: 210px;
     height: 150px;
-    display: inline-block;
 }
