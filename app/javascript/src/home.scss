@@ -1,5 +1,5 @@
  .calendar{
-     width: 641px;
+     width: 700px;
      height: 518px;
      clear: both;
      margin-top: 50px;
@@ -8,20 +8,14 @@
  }
 
  .year_month{
-     font-size: 35px; 
+     font-size: 25px; 
      color: white;
      background-color: #54C3F1;  
  }
  
- th{
-    font-weight: 100;
-    padding-bottom: 0px;
- }
- 
-
-.day {
-    padding-right: 69px;
-    padding-bottom: 62px;
+.today {
+    color: white;
+    margin-right: 5px;
 }
 
 .last_month {
@@ -30,13 +24,29 @@
 
 .next_month {
     color: white;
+    margin-right: 5px;
 }
 
-.today {
-    color: white;
+th{
+    font-weight: 100;
+    padding-bottom: 0px;
+ }
+
+ .day {
+    vertical-align: top;
+    padding-top: 0px;
+    width: 100px;
+    height: 91px;
 }
 
-.newevent {
+.firstday {
+    vertical-align: top;
+    padding-top: 0px;
+    width: 100px;
+    height: 91px;
+}
+
+.neweventbutton { 
     width: 3rem; 
     height: 3rem;
     background-color: #E38B70;
