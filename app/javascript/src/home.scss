@@ -5,6 +5,7 @@
      margin-top: 50px;
      background-color: white;
      color: black;
+     display: inline-block;
  }
 
  .year_month{
@@ -46,9 +47,25 @@ th{
     height: 91px;
 }
 
-.neweventbutton { 
+.new_event_button { 
     width: 3rem; 
     height: 3rem;
     background-color: #E38B70;
     margin-left: 75%;
+}
+
+.day_show {
+    background-color: white;
+    margin-top: 50px;
+    width: 33px;
+    height: 150px;
+    display: inline-block;
+}
+
+.new_event_form {
+    background-color: white;
+    margin-top: 50px;
+    width: 335px;
+    height: 150px;
+    display: inline-block;
 }
