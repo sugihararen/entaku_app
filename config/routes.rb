@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 Rails.application.routes.draw do
   # ログイン
   post 'login' => 'sessions#create'
@@ -17,6 +16,6 @@ Rails.application.routes.draw do
 
   # トップ画面予約一覧
   get 'home/index' => 'home#index'
-
+  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

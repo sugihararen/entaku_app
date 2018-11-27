@@ -1,3 +1,70 @@
+ .calendar{
+     width: 700px;
+     height: 518px;
+     margin-top: 50px;
+     padding-left: 0px;
+     background-color: white;
+     color: black;
+ }
+
+ .year_month{
+     font-size: 25px; 
+     color: white;
+     background-color: #54C3F1;  
+ }
  
-  
- 
+.today {
+    color: white;
+    margin-right: 5px;
+}
+
+.last_month {
+    color: white;
+}
+
+.next_month {
+    color: white;
+    margin-right: 5px;
+}
+
+th{
+    font-weight: 100;
+    padding-bottom: 0px;
+ }
+
+ .day {
+    vertical-align: top;
+    padding-top: 0px;
+    width: 100px;
+    height: 91px;
+}
+
+.firstday {
+    vertical-align: top;
+    padding-top: 0px;
+    width: 100px;
+    height: 91px;
+}
+
+.new_event_button { 
+    width: 3rem; 
+    height: 3rem;
+    background-color: #E38B70;
+    margin-left: 80%;
+    margin-top: 10px;
+}
+
+.day_show {
+    background-color: white;
+    margin-top:87px;
+    padding-right: 0px;
+    width: 210px;
+    height: 481px;
+}
+
+.new_event_form {
+    background-color: white;
+    margin-top: 87px;
+    width: 210px;
+    height: 150px;
+}
