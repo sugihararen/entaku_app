@@ -10,23 +10,23 @@
     <%= stylesheet_pack_tag 'application' %>
   </head>
   <body>
-   <div class="header border border-dark">
-    <div class="header-logo">円卓予約</div>
-　   <ul class = "header-menus">
-     <% if session[:user_id] %>
-      <li >
-      <%= link_to("ログアウト",logout_path, :class => 'menu', :method => :delete ) %>
-      </li>
-      <% else %>
+    <div class="header border border-dark">
+      <div class="header-logo">円卓予約</div>
+　      <ul class = "header-menus">
+        <% if sign_in? %>
+          <li >
+          <%= link_to("ログアウト",logout_path, :class => 'menu', :method => :delete ) %>
+          </li>
+          <% else %>
+          <% end %>
+        </ul> 
+      </div><!---->
+      <%# サクセスメッセージ %>
+      <% if flash[:notice] %>
+      <div class="flash text-center">
+      <%= flash[:notice] %>
+      </div>
       <% end %>
-     </ul> 
-   </div><!--
-　  <!--サクセスメッセージ -->
-    <% if flash[:notice] %>
-    <div class="flash text-center">
-     <%= flash[:notice] %>
-    </div>
-   <% end %>
    <%= yield %>
   </body>
 </html>

@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
       @error_message = "ユーザー名またはパスワードが間違っています"
       @name = params[:name]
       @password = params[:password]
-      render "new"
+      render :new
     end
   end
 
