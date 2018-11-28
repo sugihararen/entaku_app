@@ -1,8 +1,5 @@
  .calendar{
-     width: 700px;
-     height: 518px;
-     margin-top: 50px;
-     padding-left: 0px;
+     margin-top: 15px;
      background-color: white;
      color: black;
  }
@@ -27,23 +24,26 @@
     margin-right: 5px;
 }
 
+table {
+    width: 100%;
+    table-layout: fixed;
+}
+
 th{
     font-weight: 100;
     padding-bottom: 0px;
+    width: calc(100%/7);
  }
 
  .day {
     vertical-align: top;
     padding-top: 0px;
-    width: 100px;
-    height: 91px;
+    height: 100px;
 }
 
 .firstday {
     vertical-align: top;
     padding-top: 0px;
-    width: 100px;
-    height: 91px;
 }
 
 .new_event_button { 
@@ -56,15 +56,12 @@ th{
 
 .day_show {
     background-color: white;
-    margin-top:87px;
-    padding-right: 0px;
-    width: 210px;
-    height: 481px;
+    margin-top:52px;
+    height: 527px;
 }
 
 .new_event_form {
     background-color: white;
-    margin-top: 87px;
-    width: 210px;
+    margin-top: 52px;
     height: 150px;
 }
