@@ -41,7 +41,7 @@ th{
     height: 100px;
 }
 
-.firstday {
+.month_first_day {
     vertical-align: top;
     padding-top: 0px;
 }
@@ -50,7 +50,6 @@ th{
     width: 3rem; 
     height: 3rem;
     background-color: #E38B70;
-    margin-left: 80%;
     margin-top: 10px;
 }
 
@@ -58,10 +57,19 @@ th{
     background-color: white;
     margin-top:77px;
     height: 527px;
+    display: none;
 }
 
 .new_event_form {
     background-color: white;
     margin-top: 77px;
     height: 150px;
+    display: none;
+    padding: 10px;
+}
+
+.event_save_button {
+    background-color: #E38B70;
+    border-radius: 30px;
+    color: white
 }

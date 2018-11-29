@@ -21,5 +21,16 @@ import $ from 'jquery'
      $('.flash').fadeOut("slow")
    },800);
 
+   $('.new_event_button').click(function() {
+     $('.new_event_form').fadeIn();
+    });
+
+    $('.day').click(function() {
+      $('.day_show').fadeIn();
+     });
+
+     $('.month_first_day').click(function() {
+      $('.day_show').fadeIn();
+     });
  });
 

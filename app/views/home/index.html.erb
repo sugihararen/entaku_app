@@ -29,7 +29,7 @@
       <tr>
       <% (d..d.end_of_week).each do|c|%>
         <% if c.strftime('%d') == month_first_day %>
-          <th class = "firstday border-right border-left border-bottom border-dark">
+          <th class = "month_first_day border-right border-left border-bottom border-dark">
           <%= c.strftime('%m/%d')%>
           </th>
           <% else %>
@@ -43,11 +43,24 @@
       <% end %>
     </table>
     </div>
+    <div class = "text-right">
+      <button type="button" class="btn btn-primary rounded-circle p-0 new_event_button">＋</button>
+    </div>
   </div>
   <div class = "col-3">
     <div class = "new_event_form border border-dark">
+     <%= form_with url: home_new_url, model: @reservation_time, local: true do |f| %>
+        <div>
+          <%= f.text_field :reservation_date, type: 'date' %>
+        </div>
+        <div class = 'mt-2'>
+          <%= f.time_select :start_time%><span>~</span><%= f.time_select :end_time%>
+        </div>
+        <div class = "text-right mt-2 ">
+          <%= f.submit '保存', class: 'event_save_button border border-dark' %>
+        </div>
+     <% end %>
     </div>
   </div>
-    <button type="button" class="btn btn-primary rounded-circle p-0 new_event_button">＋</button>
   </div>
 </div>
