@@ -1,0 +1,2 @@
+class ReservationTime < ApplicationRecord
+end
