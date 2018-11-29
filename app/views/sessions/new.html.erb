@@ -2,10 +2,9 @@
   <div class="text-center">
     <div class="form users-form">
       <div class="form-body">
-      <!-- エラーメッセージ -->
-      <% if @error_message %>
+      <% if flash.now[:error] %>
         <div class="form-error">
-        <%= @error_message %>
+        <%= flash.now[:error] %>
         </div>
       <% end %>
       <%= form_with url: login_path, model: @user, local: true do |f| %>

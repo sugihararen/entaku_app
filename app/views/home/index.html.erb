@@ -22,22 +22,21 @@
         <th class = "border-right border-dark">土</th>
         <th class = "border-right border-dark">日</th>
       </tr>
-      <tr>
       <% month = @today.strftime('%m')%>
       <% month_first_day = @today.at_beginning_of_month.strftime('%d') %>
       <% d = @today.at_beginning_of_month.at_beginning_of_week%>
       <% 1.upto(5).each do|i|%>
       <tr>
       <% (d..d.end_of_week).each do|c|%>
-      <% if c.strftime('%d') == month_first_day %>
-      <th class = "firstday border-right border-left border-bottom border-dark">
-      <%= c.strftime('%m/%d')%>
-      </th>
-      <% else %>
-      <th class = "day border-right border-left border-bottom border-dark">
-      <%= c.strftime('%d')%>
-      </th>
-      <% end %>
+        <% if c.strftime('%d') == month_first_day %>
+          <th class = "firstday border-right border-left border-bottom border-dark">
+          <%= c.strftime('%m/%d')%>
+          </th>
+          <% else %>
+          <th class = "day border-right border-left border-bottom border-dark">
+          <%= c.strftime('%d')%>
+          </th>
+        <% end %>
       <% end %>
       </tr>
       <% d = d + 1.week %>
