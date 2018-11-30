@@ -2,12 +2,10 @@
 
 class HomeController < ApplicationController
   before_action :set_current_user
-  # トップ画面
   def index
     @today = Date.today
     if params[:date]
       @today = params[:date].to_date
     end
   end
-
 end
