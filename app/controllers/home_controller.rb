@@ -9,14 +9,5 @@ class HomeController < ApplicationController
       @today = params[:date].to_date
     end
   end
-  #イベント作成
-  def new
-   # @reservation_time = Reservation_time.new(
-   #                     user_id: session[:user_id],
-   #                     reservation_date:,
-   #                     start_time:,
-   #                     end_time:
-   #                     )
-    render :index
-  end
+
 end

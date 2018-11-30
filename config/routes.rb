@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 Rails.application.routes.draw do
   # ログイン
-  root 'sessions#new'
+  #root　to: 'sessions#new'
   post 'login' => 'sessions#create'
   get  'login' => 'sessions#new'
   
@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   # トップ画面予約一覧
   get 'home/index' => 'home#index'
-  post  'home/new' => 'homne#new'
+
+  resources :reservation_times 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
