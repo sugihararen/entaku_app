@@ -2,7 +2,6 @@
 
 class ReservationTimesController < ApplicationController
   before_action :set_current_user
-  
   def create
     @reservation_time = ReservationTime.new(
       user_id: session[:user_id],
@@ -10,9 +9,9 @@ class ReservationTimesController < ApplicationController
       start_time: params[:start_time],
       end_time: params[:end_time]
       )
-      if @user.save
+      if @reservation_time.save
         flash[:notice] = "予約が完了しました"
-        render :index
+        redirect_to home_index_path
       end
   end
 end
