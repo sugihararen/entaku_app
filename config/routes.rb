@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 Rails.application.routes.draw do
   # ログイン
+  root 'sessions#new'
   post 'login' => 'sessions#create'
   get  'login' => 'sessions#new'
   
