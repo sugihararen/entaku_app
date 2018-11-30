@@ -37,7 +37,6 @@ yarn-debug.log*
 .yarn-integrity
 
 
-vendor/bundle
 /public/packs
 /public/packs-test
 /node_modules
