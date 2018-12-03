@@ -1,9 +1,7 @@
 class SessionsController < ApplicationController
-  #ログインページ
   def new
   end
 
-  #ログイン
   def create
     @user = User.find_by(name: params[:name])
     if @user && @user.authenticate(params[:password])
@@ -18,11 +16,9 @@ class SessionsController < ApplicationController
     end
   end
 
-  #ログアウト
   def destroy
     session[:user_id] = nil
     flash[:notice] = "ログアウトしました"
     redirect_to login_url
   end
-
 end

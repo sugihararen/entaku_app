@@ -33,6 +33,9 @@ th{
     font-weight: 100;
     padding-bottom: 0px;
     width: calc(100%/7);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
  }
 
  .day {
@@ -56,15 +59,12 @@ th{
 .day_show {
     background-color: white;
     margin-top:77px;
-    height: 527px;
-    display: none;
-    
+    display: none;  
 }
 
 .new_event_form {
     background-color: white;
     margin-top: 77px;
-    height: 150px;
     display: none;
     padding: 10px;
 }

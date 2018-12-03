@@ -1,66 +1,93 @@
 <div class="container-fluid clear">
- <div class="row">
-  <div class = "col-3">
-    <div class = "day_show border border-dark">
-    </div>
-  </div>
-  <div class = "col-6">
-    <div class = "calendar">
-    <table>
-      <div class = "year_month text-left">
-      <%= link_to("今日",home_index_path, :class => 'today') %>
-      <%= link_to("<",home_index_path(date: @today.last_month), :class => 'last_month') %>
-      <%= link_to(">",home_index_path(date: @today.next_month), :class => 'next_month') %>
-      <%= @today.strftime('%Y年%m月')%>
-      </div>
-      <tr class = "border-top border-left border-dark" >
-        <th class = "border-right border-dark">月</th>
-        <th class = "border-right border-dark">火</th>
-        <th class = "border-right border-dark">水</th>
-        <th class = "border-right border-dark">木</th>
-        <th class = "border-right border-dark">金</th>
-        <th class = "border-right border-dark">土</th>
-        <th class = "border-right border-dark">日</th>
-      </tr>
-      <% month = @today.strftime('%m')%>
-      <% month_first_day = @today.at_beginning_of_month.strftime('%d') %>
-      <% d = @today.at_beginning_of_month.at_beginning_of_week%>
-      <% 1.upto(5).each do|i|%>
-      <tr>
-      <% (d..d.end_of_week).each do|c|%>
-        <% if c.strftime('%d') == month_first_day %>
-          <th class = "month_first_day border-right border-left border-bottom border-dark">
-          <%= c.strftime('%m/%d')%>
-          </th>
-          <% else %>
-          <th class = "day border-right border-left border-bottom border-dark">
-          <%= c.strftime('%d')%>
-          </th>
-        <% end %>
-      <% end %>
-      </tr>
-      <% d = d + 1.week %>
-      <% end %>
-    </table>
-    </div>
-    <div class = "text-right">
-      <button type="button" class="btn btn-primary rounded-circle p-0 new_event_button">＋</button>
-    </div>
-  </div>
-  <div class = "col-3">
-    <div class = "new_event_form border border-dark">
-     <%= form_with url: reservation_times_url, model: @reservation_time, :method => :post,local: true do |f| %>
+  <div class="row">
+    <div class = "col-2">
+      <div class = "day_show border border-dark">
+        <% @reservations.each do |reservation| %>
         <div>
-          <%= f.text_field :reservation_date, type: 'date' %>
+          <%= reservation.reservation_theme%>
+          <%= reservation.reservation_date %>
+          <%= reservation.start_time %>
+          <%= reservation.end_time %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+    <div class = "col-8">
+      <div class = "calendar">
+        <table>
+          <div class = "year_month text-left">
+            <%= link_to("今日",home_index_path, :class => 'today') %>
+            <%= link_to("<",home_index_path(date: @today.last_month), :class => 'last_month') %>
+            <%= link_to(">",home_index_path(date: @today.next_month), :class => 'next_month') %>
+            <%= @today.strftime('%Y年%m月')%>
+          </div>
+          <tr class = "border-top border-left border-dark" >
+            <th class = "border-right border-dark">月</th>
+            <th class = "border-right border-dark">火</th>
+            <th class = "border-right border-dark">水</th>
+            <th class = "border-right border-dark">木</th>
+            <th class = "border-right border-dark">金</th>
+            <th class = "border-right border-dark">土</th>
+            <th class = "border-right border-dark">日</th>
+          </tr>
+          <% month_first_day = @today.at_beginning_of_month.strftime('%d') %>
+          <% d = @today.at_beginning_of_month.at_beginning_of_week%>
+          <% 1.upto(5).each do|i|%>
+            <tr>
+              <% (d..d.end_of_week).each do|c|%>
+                <% if c.strftime('%d') == month_first_day %>
+                  <th class = "month_first_day border-right border-left border-bottom border-dark">
+                  <%= c.strftime('%m/%d')%>
+                    <% if reservations = ReservationTime.where(reservation_date:c.strftime('%Y-%m-%d')).limit(3) %>
+                      <% reservations.each do |reservation| %>
+                        <div>
+                          <span>・</span>
+                          <%= reservation.start_time %>
+                          <%= reservation.reservation_theme%>
+                        </div>
+                      <% end %>
+                    <% end %>
+                  </th>
+                <% else %>
+                  <th class = "day border-right border-left border-bottom border-dark">
+                  <%= c.strftime('%d')%>
+                    <% if reservations = ReservationTime.where(reservation_date:c.strftime('%Y-%m-%d')).limit(3) %>
+                      <% reservations.each do |reservation| %>
+                        <div>
+                          <span>・</span>
+                          <%= reservation.start_time %>
+                          <%= reservation.reservation_theme%>
+                        </div>
+                      <% end %>
+                    <% end %>
+                  </th>
+                <% end %>
+              <% end %>
+            </tr>
+            <% d = d + 1.week %>
+          <% end %>
+        </table>
+      </div>
+      <div class = "text-right">
+        <button type="button" class="btn btn-primary rounded-circle p-0 new_event_button">＋</button>
+      </div>
+    </div>
+    <div class = "col-2">
+      <div class = "new_event_form border border-dark">
+        <%= form_with url: reservation_times_url, model: @reservation_time, :method => :post,local: true do |f| %>
+        <div>
+          <%= f.text_field :reservation_theme, placeholder: "テーマを入力" %>
         </div>
         <div class = 'mt-2'>
-          <%= f.time_select :start_time%><span>~</span><%= f.time_select :end_time%>
+          <%= f.text_field :reservation_date, type: 'date' %>
         </div>
+        <div class = 'mt-2'>開始時刻<%= f.time_select :start_time %></div>
+        <div class = 'mt-2'>終了時刻<%= f.time_select :end_time %></div>
         <div class = "text-right mt-2 ">
           <%= f.submit '保存', class: 'event_save_button border border-dark' %>
         </div>
-     <% end %>
+        <% end %>
+      </div>
     </div>
-  </div>
   </div>
 </div>

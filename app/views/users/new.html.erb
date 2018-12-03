@@ -2,14 +2,12 @@
   <div class="text-center">
     <div class="form users-form">
       <div class="form-body">
-
         <!-- エラーメッセージ -->
         <% @user.errors.full_messages.each do |message| %>
           <div class="form-error">
             <%= message %>
           </div>
         <% end %>
-
         <%= form_with url: signup_path, model: @user, local: true do |f| %>
           <p>
            <%= f.label :name, 'ユーザー名' %>
@@ -29,7 +27,6 @@
           </p>
           <%= f.submit '新規登録', class: 'sign_up border border-dark mt-5' %>
         <% end %>
-
       </div>
     </div>
   </div>
