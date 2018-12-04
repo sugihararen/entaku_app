@@ -6,5 +6,5 @@ class User < ApplicationRecord
 
   has_secure_password
 
-  #has_many :reservation_times
+  has_many :reservation_times
 end

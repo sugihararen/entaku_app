@@ -1,14 +1,22 @@
+<% @reservation_time.errors.full_messages.each do |message| %>
+  <div class="form-error clear text-center">
+    <%= message %>
+  </div>
+<% end %>
 <div class="container-fluid clear">
   <div class="row">
     <div class = "col-2">
       <div class = "day_show border border-dark">
-        <% @reservations.each do |reservation| %>
-        <div>
-          <%= reservation.reservation_theme%>
-          <%= reservation.reservation_date %>
-          <%= reservation.start_time %>
-          <%= reservation.end_time %>
-        </div>
+        <% if @reservations %>
+          <% @reservations.each do |reservation| %>
+          <div class = "border-bottom border-dark">
+            <%= reservation.reservation_date%>
+            <%= reservation.reservation_theme%>
+            <%= reservation.start_time %>
+            <%= reservation.end_time %>
+            <%= reservation.user_id %>
+          </div>
+          <% end %>
         <% end %>
       </div>
     </div>
@@ -42,8 +50,8 @@
                       <% reservations.each do |reservation| %>
                         <div>
                           <span>・</span>
-                          <%= reservation.start_time %>
-                          <%= reservation.reservation_theme%>
+                          <%=reservation.start_time.strftime('%H:%M')%>
+                          <%=reservation.reservation_theme%>
                         </div>
                       <% end %>
                     <% end %>
@@ -55,8 +63,8 @@
                       <% reservations.each do |reservation| %>
                         <div>
                           <span>・</span>
-                          <%= reservation.start_time %>
-                          <%= reservation.reservation_theme%>
+                           <%=reservation.start_time.strftime('%H:%M')%>
+                          <%=reservation.reservation_theme%>
                         </div>
                       <% end %>
                     <% end %>
