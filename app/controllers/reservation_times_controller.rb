@@ -11,7 +11,7 @@ class ReservationTimesController < ApplicationController
       reservations.each do |reservation|
         if start_time <= reservation.end_time && end_time >= reservation.start_time
           flash[:notice] = '指定した時間帯はすでに予約が入っています'
-          return redirect_to(home_index_path)
+          return redirect_to　home_index_path
         end
       end
     end
