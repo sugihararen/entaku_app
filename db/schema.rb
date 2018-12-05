@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2018_12_05_031939) do
     t.datetime "updated_at", null: false
     t.string "reservation_theme", comment: "予約テーマ"
     t.datetime "start_time", comment: "開始時刻"
-    t.datetime "end_time"comment: "終了時刻"
+    t.datetime "end_time" ,comment: "終了時刻"
   end
 
   create_table "users", force: :cascade do |t|
