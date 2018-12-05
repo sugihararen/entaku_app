@@ -64,7 +64,7 @@ end
 gem 'pg'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
-gem 'webpacker' 
+gem 'webpacker'
 
 gem 'jquery-rails'
 
@@ -81,5 +81,3 @@ end
 group :development, :staging do
   gem 'rubocop', '~> 0.55.0', require: false
 end
-
-

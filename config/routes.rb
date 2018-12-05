@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 Rails.application.routes.draw do
   post   'login'       => 'sessions#create'
   get    'login'       => 'sessions#new'
@@ -7,6 +8,6 @@ Rails.application.routes.draw do
   post   'signup'      => 'users#create'
   get    'users/index' => 'users#index'
   get    'home/index'  => 'home#index'
-  resources :reservation_times 
+  resources :reservation_times
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
