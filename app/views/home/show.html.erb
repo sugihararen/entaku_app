@@ -1,12 +1,19 @@
-<% @reservation_time.errors.full_messages.each do |message| %>
-  <div class="form-error clear text-center">
-    <%= message %>
-  </div>
-<% end %>
 <div class="container-fluid clear">
   <div class="row">
     <div class = "col-2">
-      <div class = "day_show ">
+      <div class = "day_show border-top border-left border-right border-dark">
+        <% if  reservations = ReservationTime.where(reservation_date:@reservation_show_day).order('start_time')%>
+          <div class = "border-bottom border-dark reservation_show_day">
+            <%= @reservation_show_day.strftime('%m/%d') %>
+         </div>
+          <% reservations.each do |reservation| %>
+            <div class = "border-bottom border-dark">
+              <span>・</span>
+              <%= reservation.start_time.strftime('%H:%M') %>~<%= reservation.end_time.strftime('%H:%M') %>
+              <%= reservation.reservation_theme %>
+            </div>
+          <% end %>
+        <% end %>
       </div>
     </div>
     <div class = "col-8">

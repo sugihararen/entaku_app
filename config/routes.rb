@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post   'signup'      => 'users#create'
   get    'users/index' => 'users#index'
   get    'home/index'  => 'home#index'
+  get    'home/show'   => 'home#show'
   resources :reservation_times
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

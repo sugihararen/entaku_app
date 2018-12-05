@@ -25,12 +25,5 @@ import $ from 'jquery'
      $('.new_event_form').fadeIn();
     });
 
-    $('.day').click(function() {
-      $('.day_show').fadeIn();
-     });
-
-     $('.month_first_day').click(function() {
-      $('.day_show').fadeIn();
-     });
  });
 
