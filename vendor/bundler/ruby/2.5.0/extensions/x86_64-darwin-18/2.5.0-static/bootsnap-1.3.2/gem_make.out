@@ -1,0 +1,15 @@
+current directory: /Users/sugihararen/departure/entaku_app/vendor/bundler/ruby/2.5.0/gems/bootsnap-1.3.2/ext/bootsnap
+/Users/sugihararen/.rbenv/versions/2.5.1/bin/ruby -r ./siteconf20181206-52735-qxqbe6.rb extconf.rb
+creating Makefile
+
+current directory: /Users/sugihararen/departure/entaku_app/vendor/bundler/ruby/2.5.0/gems/bootsnap-1.3.2/ext/bootsnap
+make "DESTDIR=" clean
+
+current directory: /Users/sugihararen/departure/entaku_app/vendor/bundler/ruby/2.5.0/gems/bootsnap-1.3.2/ext/bootsnap
+make "DESTDIR="
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.bundle
+
+current directory: /Users/sugihararen/departure/entaku_app/vendor/bundler/ruby/2.5.0/gems/bootsnap-1.3.2/ext/bootsnap
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 bootsnap.bundle ./.gem.20181206-52735-147jx5d/bootsnap
