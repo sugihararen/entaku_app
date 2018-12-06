@@ -13,7 +13,6 @@ import 'src/stylesheets/home'        //home.scssの読み込み
 import 'src/stylesheets/sessions'   //sessions.scssの読み込み
 import 'bootstrap/dist/js/bootstrap'
 import $ from 'jquery'
-//import 'fullcalendar'  //カレンダー
 
 //フラッシュメッセージ
  $(function() {

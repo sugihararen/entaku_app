@@ -71,6 +71,8 @@ gem 'jquery-rails'
 # 日本語化
 gem 'rails-i18n'
 
+gem 'holiday_japan'
+
 group :development, :test do
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
