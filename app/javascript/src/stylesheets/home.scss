@@ -64,8 +64,8 @@ th{
 .new_event_form {
     background-color: white;
     margin-top: 77px;
-    display: none;
-    padding: 10px;
+    padding: 8px;
+   
 }
 
 .event_save_button {
@@ -85,8 +85,9 @@ th{
 .reservation_show_day {
     font-size: 30px;
 }
+ 
 
-.reservation_edit_continer {
+.reservation_edit_form {
     position: fixed;
     top: 0;
     right: 0;

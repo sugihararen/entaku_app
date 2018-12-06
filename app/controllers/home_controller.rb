@@ -10,7 +10,8 @@ class HomeController < ApplicationController
 
   def show 
     @reservation_time = ReservationTime.new
-    @today = Date.today
+    @today = params[:date].to_date
     @reservation_show_day = params[:date].to_date
   end
+
 end

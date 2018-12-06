@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ReservationTimesController < ApplicationController
-  before_action :set_current_user
+
   def create
     @reservation_time = ReservationTime.new(reservation_time_params)
     start_time = Time.zone.parse("#{reservation_time_params['start_time(1i)']}-#{reservation_time_params['start_time(2i)']}-#{reservation_time_params['start_time(3i)']} #{reservation_time_params['start_time(4i)']}:#{reservation_time_params['start_time(5i)']}:00")
@@ -9,7 +9,7 @@ class ReservationTimesController < ApplicationController
     if ReservationTime.where(reservation_date: reservation_time_params[:reservation_date])
       reservations = ReservationTime.where(reservation_date: reservation_time_params[:reservation_date])
       reservations.each do |reservation|
-        if start_time <= reservation.end_time && end_time >= reservation.start_time
+        if start_time < reservation.end_time && end_time > reservation.start_time
           flash[:notice] = '指定した時間帯はすでに予約が入っています'
           return redirect_to(home_index_path)
         end

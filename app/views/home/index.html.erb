@@ -1,8 +1,3 @@
-<% @reservation_time.errors.full_messages.each do |message| %>
-  <div class="form-error clear text-center">
-    <%= message %>
-  </div>
-<% end %>
 <div class="container-fluid clear">
   <div class="row">
     <div class = "col-2">
@@ -70,7 +65,12 @@
       </div>
     </div>
     <div class = "col-2">
-      <div class = "new_event_form border border-dark">
+      <div class = "new_event_form border border-dark" style = "<%= 'display:none' if controller.action_name == 'index' %>">
+        <% @reservation_time.errors.full_messages.each do |message| %>
+          <div class="form-error clear text-center">
+            <%= message %>
+          </div>
+        <% end %>
         <%= form_with url: reservation_times_url, model: @reservation_time, :method => :post,local: true do |f| %>
         <div>
           <%= f.text_field :reservation_theme, placeholder: "テーマを入力" %>
@@ -88,7 +88,7 @@
     </div>
   </div>
 </div>
-<div class = "reservation_edit_continer" >
+<div class = "reservation_edit_form" >
   <div class = "reservation_edit text-center">
     ======================
   </div>
