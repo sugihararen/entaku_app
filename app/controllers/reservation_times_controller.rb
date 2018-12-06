@@ -21,6 +21,7 @@ class ReservationTimesController < ApplicationController
       redirect_to home_index_path
     else
       @today = Date.today
+      @reservation_show_day =  Date.today
       render home_index_path
     end
   end
