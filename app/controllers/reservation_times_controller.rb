@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ReservationTimesController < ApplicationController
-
+  before_action :set_current_user
   def create
     @reservation_time = ReservationTime.new(reservation_time_params)
     start_time = Time.zone.parse("#{reservation_time_params['start_time(1i)']}-#{reservation_time_params['start_time(2i)']}-#{reservation_time_params['start_time(3i)']} #{reservation_time_params['start_time(4i)']}:#{reservation_time_params['start_time(5i)']}:00")
@@ -24,6 +24,14 @@ class ReservationTimesController < ApplicationController
       @reservation_show_day =  Date.today
       render home_index_path
     end
+  end
+
+  def show
+    @reservation_show_day =  params[:date].to_date if params[:date]
+    @reservation_start_time = params[:start_time] if params[:start_time]
+    @reservation_end_time = params[:end_time] if params[:end_time]
+    @reservation_theme = params[:reservation_thema] if params[:reservation_thema]
+    @holiday_name = HolidayJapan.name(@reservation_show_day)
   end
 
   private

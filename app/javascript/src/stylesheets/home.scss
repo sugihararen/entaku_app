@@ -24,6 +24,12 @@
     margin-right: 5px;
 }
 
+.holiday_name {
+    font-size: 20px;
+    color: white;
+    background-color:#0B8043;
+}
+
 table {
     width: 100%;
     table-layout: fixed;
@@ -49,7 +55,7 @@ th{
 .new_event_button { 
     width: 3rem; 
     height: 3rem;
-    background-color: #E38B70;
+    background-color: #db4437;
     margin-top: 10px;
 }
 
@@ -75,33 +81,8 @@ th{
     clear: both;
 }
 
-.color {
-    color: black;
-}
-
 .reservation_show_day {
     font-size: 30px;
 }
  
-
-.reservation_edit_form {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.2);
-    z-index: 100;
-    display: none;
-}
-
-.reservation_edit {
-    position: absolute;
-    top: 40%;
-    left: 34%;
-    background-color: white;
-    padding: 20px 0 40px;
-    width: 450px;
-    height: auto;
-}
 

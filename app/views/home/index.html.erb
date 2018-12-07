@@ -5,11 +5,28 @@
         <% if  reservations = ReservationTime.where(reservation_date:@reservation_show_day).order('start_time')%>
           <div class = "border-bottom border-dark reservation_show_day">
             <%= @reservation_show_day.strftime('%m/%d')%>
+            <% if holidayname = HolidayJapan.name(@reservation_show_day.strftime('%Y%m%d').to_date) %>
+              <div class = "holiday_name border-top border-dark" >
+                <%= holidayname%> 
+              </div>
+            <% end %>
           </div>
           <% reservations.each do |reservation| %>
-            <div class = "border-bottom border-dark">
+            <div class = "border-bottom border-dark ">
               <span>・</span>
-              <%= reservation.start_time.strftime('%H:%M') %>~<%= reservation.end_time.strftime('%H:%M') %>
+              <%= link_to(reservation.start_time.strftime('%H:%M'),reservation_time_path(id: @current_user.id,
+                                                                                         date:@reservation_show_day,
+                                                                                         start_time:reservation.start_time.strftime('%H:%M'),
+                                                                                         end_time:reservation.end_time.strftime('%H:%M'),
+                                                                                         reservation_thema:reservation.reservation_theme),
+                                                                                         :style => 'color:black')%>
+              <span>~</span>
+              <%= link_to(reservation.end_time.strftime('%H:%M'),reservation_time_path(id: @current_user.id,
+                                                                                       date:@reservation_show_day,
+                                                                                       start_time:reservation.start_time.strftime('%H:%M'),
+                                                                                       end_time:reservation.end_time.strftime('%H:%M'),
+                                                                                       reservation_thema:reservation.reservation_theme),
+                                                                                       :style => 'color:black')%>
               <%= reservation.reservation_theme %>
             </div>
           <% end %>
@@ -25,7 +42,7 @@
             <%= link_to(">",home_index_path(date: @today.next_month), :class => 'next_month') %>
             <%= @today.strftime('%Y年%m月')%>
           </div>
-          <tr class = "border-top border-left border-dark" >
+          <tr class = "border-top border-left border-bottom border-dark" >
             <th class = "border-right border-dark">月</th>
             <th class = "border-right border-dark">火</th>
             <th class = "border-right border-dark">水</th>
@@ -47,15 +64,25 @@
                   <%else%>  
                     <th class = "days border-right border-left border-bottom border-dark">
                   <%end%>
-                    <div style ="<%='background-color:#57BD37' if name = HolidayJapan.name(c.strftime('%Y-%m-%d').to_date)%>">
-                      <%= link_to(c.strftime('%m/%d'),home_show_path(date: c.strftime('%Y-%m-%d')), :class => 'color') %>
-                      <%= name %>  
+                  <%= link_to(c.strftime('%m/%d'),home_show_path(date: c.strftime('%Y-%m-%d')), :style =>'color:black') %>
+                    <div style ="<%='background-color:#0B8043; color:white' if holidayname = HolidayJapan.name(c.strftime('%Y-%m-%d').to_date)%>">
+                      <%= holidayname %>  
                     </div> 
-                    <% if reservations = ReservationTime.where(reservation_date:c.strftime('%Y-%m-%d')).order('start_time').limit(3) %>
+                    <% if holidayname %>
+                      <% i = 2 %>
+                    <%else%>
+                      <% i = 3 %>
+                    <% end %>
+                    <% if reservations = ReservationTime.where(reservation_date:c.strftime('%Y-%m-%d')).order('start_time').limit(i) %>
                       <% reservations.each do |reservation| %>
                         <div>
                           <span>・</span>
-                          <%=reservation.start_time.strftime('%H:%M')%>
+                          <%= link_to(reservation.start_time.strftime('%H:%M'),reservation_time_path(id: @current_user.id,
+                                                                                                     date:c.strftime('%Y-%m-%d'),
+                                                                                                     start_time:reservation.start_time.strftime('%H:%M'),
+                                                                                                     end_time:reservation.end_time.strftime('%H:%M'),
+                                                                                                     reservation_thema:reservation.reservation_theme),
+                                                                                                     :style => 'color:black')%>
                           <%=reservation.reservation_theme%>
                         </div>
                       <% end %>
@@ -69,15 +96,25 @@
                   <%else%>  
                     <th class = "days border-right border-left border-bottom border-dark">
                   <%end%> 
-                    <div style ="<%='background-color:#57BD37' if name = HolidayJapan.name(c.strftime('%Y-%m-%d').to_date)%>">
-                      <%= link_to(c.strftime('%d'),home_show_path(date: c.strftime('%Y-%m-%d')), :class => 'color') %>
-                      <%= name %>  
+                  <%= link_to(c.strftime('%d'),home_show_path(date: c.strftime('%Y-%m-%d')), :style => 'color:black' ) %>
+                    <div style ="<%='background-color:#0B8043; color:white' if holidayname = HolidayJapan.name(c.strftime('%Y-%m-%d').to_date)%>">
+                      <%= holidayname %>  
                     </div>
-                    <% if reservations = ReservationTime.where(reservation_date:c.strftime('%Y-%m-%d')).order('start_time').limit(3) %>
+                    <% if holidayname %>
+                      <% i = 2 %>
+                    <%else%>
+                      <% i = 3 %>
+                    <% end %>
+                    <% if reservations = ReservationTime.where(reservation_date:c.strftime('%Y-%m-%d')).order('start_time').limit(i) %>
                       <% reservations.each do |reservation| %>
                         <div>
                           <span>・</span>
-                          <%=reservation.start_time.strftime('%H:%M')%>
+                          <%= link_to(reservation.start_time.strftime('%H:%M'),reservation_time_path(id: @current_user.id,
+                                                                                                     date:c.strftime('%Y-%m-%d'),
+                                                                                                     start_time:reservation.start_time.strftime('%H:%M'),
+                                                                                                     end_time:reservation.end_time.strftime('%H:%M'),
+                                                                                                     reservation_thema:reservation.reservation_theme),
+                                                                                                     :style => 'color:black')%>
                           <%=reservation.reservation_theme%>
                         </div>
                       <% end %>
@@ -112,10 +149,5 @@
         <% end %>
       </div>
     </div>
-  </div>
-</div>
-<div class = "reservation_edit_form" >
-  <div class = "reservation_edit text-center">
-    ======================
   </div>
 </div>

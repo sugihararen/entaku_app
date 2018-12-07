@@ -11,7 +11,13 @@
   </head>
   <body>
     <div class="header border border-dark">
-      <div class="header-logo">円卓予約</div>
+      <div class="header-logo">
+      <% if sign_in? %>
+        <%= link_to("円卓予約",home_index_path , :style => 'color:#54C3F1' ) %>
+      <% else %>
+        円卓予約
+      <% end %>     
+      </div>
 　      <ul class = "header-menus">
         <% if sign_in? %>
           <li >

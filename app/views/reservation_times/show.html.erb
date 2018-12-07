@@ -1,0 +1,34 @@
+<div class="container-fluid ">
+  <div class="row">
+    <div class = "col-2">
+    </div>
+    <div class = "col-8">
+      <div class = "reservation_edit_form">
+        <div class = "reservation_edit border border-dark">
+          <div style = "font-size:30px"  >
+            <%= @reservation_show_day.strftime("%Y/%m/%d")  %>
+          </div>
+          <% if @holiday_name  %>
+            <div style = "font-size:30px; color:white; background-color:#0B8043;" >
+              <%= @holiday_name %>
+            </div>
+          <% end %>
+          <div style = "font-size:20px">
+            <span>・</span>
+            <%= @reservation_start_time%>
+            <span>~</span>
+            <%= @reservation_end_time %>
+            <%=@reservation_theme%>
+          </div>
+           削除　編集
+        </div>
+      </div>
+    </div>
+    <div class = "col-2">
+    </div>
+  </div>
+</div>
+
+
+
+
