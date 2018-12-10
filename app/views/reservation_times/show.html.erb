@@ -7,20 +7,21 @@
         <div class = "reservation_edit border border-dark">
           <div style = "font-size:30px"  >
             <%= @reservation_show_day.strftime("%Y/%m/%d")  %>
+             <%= link_to("削除",reservation_time_path(reservation_show_day:@reservation_show_day,reservation_start_time:@reservation_start_time),:style => "float:right;color:black", :class => "mr-1",:method => :delete) %>
+             <%= link_to("編集",reservation_time_path,:style => "float:right;color:black", :class => "mr-1") %>
           </div>
           <% if @holiday_name  %>
-            <div style = "font-size:30px; color:white; background-color:#0B8043;" >
+            <div style = "font-size:30px; color:white; background-color:#0B8043;" class = "border-top border-dark">
               <%= @holiday_name %>
             </div>
           <% end %>
-          <div style = "font-size:20px">
+          <div style = "font-size:20px" class = "border-top border-dark">
             <span>・</span>
-            <%= @reservation_start_time%>
+            <%= @reservation_start_time.strftime('%H:%M')%>
             <span>~</span>
-            <%= @reservation_end_time %>
+            <%= @reservation_end_time.strftime('%H:%M') %>
             <%=@reservation_theme%>
           </div>
-           削除　編集
         </div>
       </div>
     </div>

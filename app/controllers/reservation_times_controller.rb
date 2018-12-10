@@ -28,10 +28,17 @@ class ReservationTimesController < ApplicationController
 
   def show
     @reservation_show_day =  params[:date].to_date if params[:date]
-    @reservation_start_time = params[:start_time] if params[:start_time]
-    @reservation_end_time = params[:end_time] if params[:end_time]
+    @reservation_start_time = params[:start_time].to_time if params[:start_time]
+    @reservation_end_time = params[:end_time].to_time if params[:end_time]
     @reservation_theme = params[:reservation_thema] if params[:reservation_thema]
     @holiday_name = HolidayJapan.name(@reservation_show_day)
+  end
+
+  def destroy
+    @reservation_time = ReservationTime.find_by(reservation_date:params[:reservation_show_day],start_time:params[:reservation_start_time])
+    @reservation_time.destroy
+    flash[:notice] = '予約を削除しました'
+    redirect_to home_index_path
   end
 
   private
