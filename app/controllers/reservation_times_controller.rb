@@ -46,7 +46,8 @@ class ReservationTimesController < ApplicationController
     @reservation_time = ReservationTime.find_by(reservation_date:params[:reservation_time][:reservation_show_day],start_time:params[:reservation_time][:reservation_start_time])
     start_time = Time.zone.parse("#{reservation_time_params['start_time(1i)']}-#{reservation_time_params['start_time(2i)']}-#{reservation_time_params['start_time(3i)']} #{reservation_time_params['start_time(4i)']}:#{reservation_time_params['start_time(5i)']}:00")
     end_time = Time.zone.parse("#{reservation_time_params['end_time(1i)']}-#{reservation_time_params['end_time(2i)']}-#{reservation_time_params['end_time(3i)']} #{reservation_time_params['end_time(4i)']}:#{reservation_time_params['end_time(5i)']}:00")
-    if reservations = ReservationTime.where(reservation_date: reservation_time_params[:reservation_date])
+    if ReservationTime.where(reservation_date: reservation_time_params[:reservation_date])
+      reservations = ReservationTime.where(reservation_date: reservation_time_params[:reservation_date])
       reservations.each do |reservation|
           unless start_time == reservation.start_time && end_time == reservation.end_time
             unless start_time <= reservation.start_time ||  start_time >= reservation.start_time && end_time <= reservation.end_time ||  end_time >= reservation.end_time
