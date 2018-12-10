@@ -26,12 +26,47 @@ class ReservationTimesController < ApplicationController
     end
   end
 
-  def show
+  def show    
     @reservation_show_day =  params[:date].to_date if params[:date]
     @reservation_start_time = params[:start_time].to_time if params[:start_time]
     @reservation_end_time = params[:end_time].to_time if params[:end_time]
     @reservation_theme = params[:reservation_thema] if params[:reservation_thema]
     @holiday_name = HolidayJapan.name(@reservation_show_day)
+  end
+
+  def edit
+    @reservation_show_day = params[:reservation_show_day] 
+    @reservation_start_time = params[:reservation_start_time]
+    @reservation_end_time = params[:reservation_end_time]
+    @reservation_theme = params[:reservation_theme]
+    @reservation_time = ReservationTime.find_by(reservation_date: @reservation_show_day, start_time: @reservation_start_time)
+  end
+
+  def update
+    @reservation_time = ReservationTime.find_by(reservation_date:params[:reservation_time][:reservation_show_day],start_time:params[:reservation_time][:reservation_start_time])
+    start_time = Time.zone.parse("#{reservation_time_params['start_time(1i)']}-#{reservation_time_params['start_time(2i)']}-#{reservation_time_params['start_time(3i)']} #{reservation_time_params['start_time(4i)']}:#{reservation_time_params['start_time(5i)']}:00")
+    end_time = Time.zone.parse("#{reservation_time_params['end_time(1i)']}-#{reservation_time_params['end_time(2i)']}-#{reservation_time_params['end_time(3i)']} #{reservation_time_params['end_time(4i)']}:#{reservation_time_params['end_time(5i)']}:00")
+    if reservations = ReservationTime.where(reservation_date: reservation_time_params[:reservation_date])
+      reservations.each do |reservation|
+          unless start_time == reservation.start_time && end_time == reservation.end_time
+            unless start_time <= reservation.start_time ||  start_time >= reservation.start_time && end_time <= reservation.end_time ||  end_time >= reservation.end_time
+              if start_time < reservation.end_time && end_time > reservation.start_time
+              flash[:notice] = '指定した時間帯はすでに予約が入っています'
+              @reservation_start_time = params[:reservation_time][:reservation_start_time]
+              @reservation_end_time = params[:reservation_time][:reservation_end_time]
+              @reservation_theme = params[:reservation_time][:reservation_theme]
+              @reservation_show_day = params[:reservation_time][:reservation_show_day]
+              return render :edit
+            end
+          end
+        end
+      end
+    end
+    if @reservation_time.update(reservation_time_params)
+       @reservation_time.save
+       flash[:notice] = '予約を編集しました'
+       redirect_to home_index_path
+    end
   end
 
   def destroy
