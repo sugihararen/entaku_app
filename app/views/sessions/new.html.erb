@@ -7,14 +7,15 @@
         <%= flash.now[:error] %>
         </div>
       <% end %>
-      <%= form_with url: login_path, model: @user, local: true do |f| %>
+      <%= form_with url: login_path, model: @user,:method => :post,local: true do |f| %>
         <p>
         <%= f.label :name, 'ユーザー名' %>
         <%= f.text_field :name, class: 'border border-dark ml-5'%>
         </p>
         <p>
         <%= f.label :password, 'パスワード' %>
-        <%= f.password_field :password, class: 'border border-dark ml-5'%>
+        <!--<%= f.password_field :password, class: 'border border-dark ml-5',value: @password%>-->
+        <%= f.text_field :password, class: 'border border-dark ml-5'%>
         </p>
         <%= f.submit 'ログイン', class: 'login border border-white mt-5' %>
       <% end %>

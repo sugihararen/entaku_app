@@ -11,8 +11,6 @@ class SessionsController < ApplicationController
       redirect_to home_index_url
     else
       flash.now[:error] = 'ユーザー名またはパスワードが間違っています'
-      @name = params[:name]
-      @password = params[:password]
       render :new
     end
   end

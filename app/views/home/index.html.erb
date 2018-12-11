@@ -19,14 +19,16 @@
                                                                                           date:@reservation_show_day,
                                                                                           start_time:reservation.start_time,
                                                                                           end_time:reservation.end_time,
-                                                                                          reservation_thema:reservation.reservation_theme),
+                                                                                          reservation_thema:reservation.reservation_theme,
+                                                                                          reservation_id:reservation.id),
                                                                                           :style => 'color:black')%>
                 <span>~</span>
                 <%= link_to(reservation.end_time.strftime('%H:%M'),reservation_time_path(id: @current_user.id,
                                                                                         date:@reservation_show_day,
                                                                                         start_time:reservation.start_time,
                                                                                         end_time:reservation.end_time,
-                                                                                        reservation_thema:reservation.reservation_theme),
+                                                                                        reservation_thema:reservation.reservation_theme,
+                                                                                        reservation_id:reservation.id),
                                                                                         :style => 'color:black')%>
                 <%= reservation.reservation_theme %>
               </div>
@@ -83,7 +85,8 @@
                                                                                                      date:c.strftime('%Y-%m-%d'),
                                                                                                      start_time:reservation.start_time,
                                                                                                      end_time:reservation.end_time,
-                                                                                                     reservation_thema:reservation.reservation_theme),
+                                                                                                     reservation_thema:reservation.reservation_theme,
+                                                                                                     reservation_id:reservation.id),
                                                                                                      :style => 'color:black')%>
                           <%=reservation.reservation_theme%>
                         </div>
@@ -115,7 +118,8 @@
                                                                                                      date:c.strftime('%Y-%m-%d'),
                                                                                                      start_time:reservation.start_time,
                                                                                                      end_time:reservation.end_time,
-                                                                                                     reservation_thema:reservation.reservation_theme),
+                                                                                                     reservation_thema:reservation.reservation_theme,
+                                                                                                     reservation_id:reservation.id),
                                                                                                      :style => 'color:black')%>
                           <%=reservation.reservation_theme%>
                         </div>
