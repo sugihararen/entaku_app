@@ -10,8 +10,20 @@ class ReservationTimesController < ApplicationController
       reservations = ReservationTime.where(reservation_date: reservation_time_params[:reservation_date])
       reservations.each do |reservation|
         if start_time < reservation.end_time && end_time > reservation.start_time
-          flash[:notice] = '指定した時間帯はすでに予約が入っています'
-          return redirect_to(home_index_path)
+          @message = '指定した時間帯はすでに予約が入っています'
+          @today = Date.today
+          @reservation_show_day =  Date.today
+          return render(home_index_path)
+        elsif start_time == end_time
+          @message = '開始時刻と終了時刻が同じです'
+          @today = Date.today
+          @reservation_show_day =  Date.today
+          return render(home_index_path)
+        elsif start_time > end_time
+          @message = '開始時刻が終了時刻より遅いです'
+          @today = Date.today
+          @reservation_show_day =  Date.today
+          return render(home_index_path)
         end
       end
     end
