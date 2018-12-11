@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @user = User.all.order(:created_at).reverse_order
+    @users = User.all.order(:created_at).reverse_order
   end
 
   private
