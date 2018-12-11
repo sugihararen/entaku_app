@@ -64,7 +64,7 @@ end
 gem 'pg'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
-gem 'webpacker','4.0.0-pre.2'
+gem 'webpacker','3.5.5'
 
 gem 'jquery-rails'
 
