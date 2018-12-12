@@ -45,6 +45,8 @@ class ReservationTimesController < ApplicationController
     @reservation_theme = params[:reservation_thema] if params[:reservation_thema]
     @reservation_id = params[:reservation_id]
     @holiday_name = HolidayJapan.name(@reservation_show_day)
+    @reservations = ReservationTime.all
+    @users = User.all
   end
 
   def edit
