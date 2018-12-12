@@ -26,4 +26,3 @@ import $ from 'jquery'
     });
 
  });
-
