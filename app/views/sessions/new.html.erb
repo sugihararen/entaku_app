@@ -14,9 +14,8 @@
         </p>
         <p>
         <%= f.label :password, 'パスワード' %>
-        <!--<%= f.password_field :password, class: 'border border-dark ml-5',value: @password%>-->
-        <%= f.text_field :password, class: 'border border-dark ml-5'%>
-        </p>
+        <%= f.password_field :password, class: 'border border-dark ml-5'%>
+       </p>
         <%= f.submit 'ログイン', class: 'login border border-white mt-5' %>
       <% end %>
         <%= link_to "新規登録", signup_path, class:'btn btn-default sign_up border border-dark mt-5 ' %>  
