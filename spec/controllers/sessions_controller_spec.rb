@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe SessionsController, type: :controller do
   describe 'sessions#create' do
-    subject { post :create, params: { name: 'sugihararen', password: 'ren19971121' } }
+    subject { post :create, params: { user: { name: 'sugihararen', password: 'ren19971121' } } }
 
     context '正常なログイン情報でログインした場合' do
       before do
