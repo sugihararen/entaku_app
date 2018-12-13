@@ -10,12 +10,18 @@
     <%= stylesheet_pack_tag 'application' %>
   </head>
   <body>
+    <h5 class = "mt-1 ml-3"></h5>
     <div class="header border border-dark">
       <div class="header-logo">
       <% if sign_in? %>
         <%= link_to("円卓予約",home_index_path , :style => 'color:#54C3F1' ) %>
+        <ul class = "header-menus pl-2">
+          <li class = "menu" >
+            ユーザー：<%=  @current_user.name if@current_user %>
+          </li>
+        </ul>
       <% else %>
-        円卓予約
+        <%= link_to("円卓予約",login_path , :style => 'color:#54C3F1' ) %>
       <% end %>     
       </div>
 　      <ul class = "header-menus">
