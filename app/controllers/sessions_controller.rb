@@ -1,8 +1,13 @@
 # frozen_string_literal: true
 
-class SessionsController < ApplicationController
-  def new;
+class SessionsController < ApplicationController   
+
+  def new
     @user = User.new
+    if session[:user_id]
+      flash[:notice] = "すでにログインしています"
+      redirect_to home_index_path
+    end
   end
 
   def create

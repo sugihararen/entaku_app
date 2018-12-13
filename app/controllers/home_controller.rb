@@ -2,10 +2,7 @@
 
 class HomeController < ApplicationController
   before_action :set_current_user
-  before_action :authenticate_user
-  
-  
-  
+   
   def index
     @reservation_time = ReservationTime.new
     @reservation_show_day =  Date.today
