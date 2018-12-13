@@ -8,25 +8,42 @@
 
 .sign_up {
     background-color: #E38B70;
-    width: 150px;
-    height: 60px;
+    color: white;
     border-radius: 30px;
-    text-align: center;
+    padding: 10px 30px;
 }
 
 .login {
     background-color: #54C3F1;
     color: white;
-    width: 150px;
-    height: 60px;
     border-radius: 30px;
+    padding: 10px 30px;
+}
+
+//新規登録画面
+.email {
+   margin-right: 38px;
+}
+
+.password_confirmation {
+    margin-right: 58px;
 }
 
 .field_with_errors {
     display: inline;
   }
-
+  
   //フォーム
  .form-error {
     color: #ff4d75;
+  }
+
+  .users_form{
+      background-color: white;
+     
+  }
+
+  .users_heading {
+      color: white; 
+      margin-top: 40px;
   }

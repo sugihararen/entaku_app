@@ -6,9 +6,5 @@ class User < ApplicationRecord
 
   has_secure_password
 
-  validate :add_error_sample
-
-  def add_error_sample
-    errors[:base] << '確認用passwordを入力して下さい' if password_confirmation.blank?
-  end
+  has_many :reservation_times
 end

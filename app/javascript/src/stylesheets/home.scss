@@ -1,8 +1,5 @@
  .calendar{
-     width: 700px;
-     height: 518px;
-     margin-top: 50px;
-     padding-left: 0px;
+     margin-top: 40px;
      background-color: white;
      color: black;
  }
@@ -27,44 +24,65 @@
     margin-right: 5px;
 }
 
+.holiday_name {
+    font-size: 20px;
+    color: white;
+    background-color:#0B8043;
+}
+
+table {
+    width: 100%;
+    table-layout: fixed;
+}
+
 th{
     font-weight: 100;
     padding-bottom: 0px;
+    width: calc(100%/7);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
  }
 
- .day {
+ .days {
     vertical-align: top;
     padding-top: 0px;
-    width: 100px;
-    height: 91px;
+    height: 100px;
 }
 
-.firstday {
-    vertical-align: top;
-    padding-top: 0px;
-    width: 100px;
-    height: 91px;
-}
+
 
 .new_event_button { 
     width: 3rem; 
     height: 3rem;
-    background-color: #E38B70;
-    margin-left: 80%;
+    background-color: #db4437;
     margin-top: 10px;
 }
 
 .day_show {
     background-color: white;
-    margin-top:87px;
-    padding-right: 0px;
-    width: 210px;
-    height: 481px;
+    margin-top:77px;
 }
 
 .new_event_form {
     background-color: white;
-    margin-top: 87px;
-    width: 210px;
-    height: 150px;
+    margin-top: 77px;
+    padding: 8px;
+   
 }
+
+.event_save_button {
+    background-color:#54C3F1;
+    border-radius: 30px;
+    color: white
+}
+
+.clear {
+    clear: both;
+}
+
+.reservation_show_day {
+    font-size: 30px;
+}
+ 
+

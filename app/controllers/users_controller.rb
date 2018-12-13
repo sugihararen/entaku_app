@@ -1,14 +1,10 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  # before_action :authenticate_user,{only:[:index,:create]}
-
-  # 新規登録画面
   def new
     @user = User.new
   end
 
-  # ユーザー登録
   def create
     @user = User.new(user_params)
     if @user.save
@@ -20,9 +16,8 @@ class UsersController < ApplicationController
     end
   end
 
-  # ユーザー一覧画面
   def index
-    @user = User.all
+    @users = User.all.order(:created_at).reverse_order
   end
 
   private
@@ -30,5 +25,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
-  
 end

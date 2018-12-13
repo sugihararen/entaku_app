@@ -7,13 +7,13 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
-import 'src/application' // application.scss の読み込み
-import 'src/users'       // users.scss の読み込み
-import 'src/home'        //home.scssの読み込み
-import 'src/sessions'   //sessions.scssの読み込み
+import 'src/stylesheets/application' // application.scss の読み込み
+import 'src/stylesheets/users'       // users.scss の読み込み
+import 'src/stylesheets/home'        //home.scssの読み込み
+import 'src/stylesheets/sessions'   //sessions.scssの読み込み
+import 'src/stylesheets/reservation_times'
 import 'bootstrap/dist/js/bootstrap'
 import $ from 'jquery'
-//import 'fullcalendar'  //カレンダー
 
 //フラッシュメッセージ
  $(function() {
@@ -21,5 +21,8 @@ import $ from 'jquery'
      $('.flash').fadeOut("slow")
    },800);
 
- });
+   $('.new_event_button').click(function() {
+     $('.new_event_form').fadeIn();
+    });
 
+ });

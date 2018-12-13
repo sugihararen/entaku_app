@@ -63,13 +63,14 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'pg'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-
 gem 'webpacker'
 
 gem 'jquery-rails'
 
 # 日本語化
 gem 'rails-i18n'
+
+gem 'holiday_japan'
 
 group :development, :test do
   gem 'factory_bot_rails'
@@ -81,5 +82,3 @@ end
 group :development, :staging do
   gem 'rubocop', '~> 0.55.0', require: false
 end
-
-

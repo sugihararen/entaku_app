@@ -1,49 +1,161 @@
-<div class="container-fluid">
- <div class="row">
-  <div class = "day_show border border-dark col-lg-2">
-  </div>
-  <div class = "calendar mx-auto">
-   <table>
-    <div class = "year_month text-left">
-     <%= link_to("今日",home_index_path, :class => 'today') %>
-     <%= link_to("<",home_index_path(date: @today.last_month), :class => 'last_month') %>
-     <%= link_to(">",home_index_path(date: @today.next_month), :class => 'next_month') %>
-     <%= @today.strftime('%Y年%m月')%>
+<div class="container-fluid clear">
+  <div class="row">
+    <div class = "col-2">
+      <div class = "day_show ">
+        <% if  reservations = ReservationTime.where(reservation_date:@reservation_show_day).order('start_time')%>
+          <% if ReservationTime.find_by(reservation_date:@reservation_show_day) %>
+            <div class = "border border-dark reservation_show_day">
+              <%= @reservation_show_day.strftime('%m/%d')%>
+              <% if holidayname = HolidayJapan.name(@reservation_show_day.strftime('%Y%m%d').to_date) %>
+                <div class = "holiday_name border-top border-dark" >
+                  <%= holidayname%> 
+                </div>
+              <% end %>
+            </div>
+            <% reservations.each do |reservation| %>
+              <div class = "border-bottom border-right border-left border-dark ">
+                <span>・</span>
+                <%= link_to(reservation.start_time.strftime('%H:%M'),reservation_time_path(id: @current_user.id,
+                                                                                          date:@reservation_show_day,
+                                                                                          start_time:reservation.start_time,
+                                                                                          end_time:reservation.end_time,
+                                                                                          reservation_thema:reservation.reservation_theme,
+                                                                                          reservation_id:reservation.id),
+                                                                                          :style => 'color:black')%>
+                <span>~</span>
+                <%= link_to(reservation.end_time.strftime('%H:%M'),reservation_time_path(id: @current_user.id,
+                                                                                        date:@reservation_show_day,
+                                                                                        start_time:reservation.start_time,
+                                                                                        end_time:reservation.end_time,
+                                                                                        reservation_thema:reservation.reservation_theme,
+                                                                                        reservation_id:reservation.id),
+                                                                                        :style => 'color:black')%>
+                <%= reservation.reservation_theme %>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
     </div>
-    <tr class = "border-top border-left border-dark" >
-     <th class = "border-right border-dark">月</th>
-     <th class = "border-right border-dark">火</th>
-     <th class = "border-right border-dark">水</th>
-     <th class = "border-right border-dark">木</th>
-     <th class = "border-right border-dark">金</th>
-     <th class = "border-right border-dark">土</th>
-     <th class = "border-right border-dark">日</th>
-    </tr>
-    <tr>
-     <% month = @today.strftime('%m')%>
-     <% month_first_day = @today.at_beginning_of_month.strftime('%d') %>
-     <% d = @today.at_beginning_of_month.at_beginning_of_week%>
-     <% 1.upto(5).each do|i|%>
-    <tr>
-     <% (d..d.end_of_week).each do|c|%>
-     <% if c.strftime('%d') == month_first_day %>
-    <th class = "firstday border-right border-left border-bottom border-dark">
-     <%= c.strftime('%m/%d')%>
-    </th>
-     <% else %>
-    <th class = "day border-right border-left border-bottom border-dark">
-     <%= c.strftime('%d')%>
-    </th>
-     <% end %>
-     <% end %>
-    </tr>
-    <% d = d + 1.week %>
-    <% end %>
-   </table>
+    <div class = "col-8">
+      <div class = "calendar">
+        <table>
+          <div class = "year_month text-left">
+            <%= link_to("今日",home_index_path, :class => 'today') %>
+            <%= link_to("<",home_index_path(date: @today.last_month), :class => 'last_month') %>
+            <%= link_to(">",home_index_path(date: @today.next_month), :class => 'next_month') %>
+            <%= @today.strftime('%Y年%m月')%>
+          </div>
+          <tr class = "border-top border-left border-bottom border-dark" >
+            <th class = "border-right border-dark">月</th>
+            <th class = "border-right border-dark">火</th>
+            <th class = "border-right border-dark">水</th>
+            <th class = "border-right border-dark">木</th>
+            <th class = "border-right border-dark">金</th>
+            <th class = "border-right border-dark" style ='background-color:#F4CDC9'>土</th>
+            <th class = "border-right border-dark" style ='background-color:#D7E8FC'>日</th>
+          </tr>
+          <% month_first_day = @today.at_beginning_of_month.strftime('%d') %>
+          <% d = @today.at_beginning_of_month.at_beginning_of_week%>
+          <% 1.upto(5).each do|i|%>
+            <tr>
+              <% (d..d.end_of_week).each do|c|%>
+                <% if c.strftime('%d') == month_first_day %>
+                  <% if c.strftime('%Y-%m-%d').to_date.saturday? %>
+                    <th class = "days border-right border-left border-bottom border-dark" style ='background-color:#F4CDC9'>
+                  <% elsif c.strftime('%Y-%m-%d').to_date.sunday?%>
+                    <th class = "days border-right border-left border-bottom border-dark" style ='background-color:#D7E8FC'>
+                  <%else%>  
+                    <th class = "days border-right border-left border-bottom border-dark">
+                  <%end%>
+                  <%= link_to(c.strftime('%m/%d'),home_show_path(date: c.strftime('%Y-%m-%d')), :style =>'color:black') %>
+                    <div style ="<%='background-color:#0B8043; color:white' if holidayname = HolidayJapan.name(c.strftime('%Y-%m-%d').to_date)%>">
+                      <%= holidayname %>  
+                    </div> 
+                    <% if holidayname %>
+                      <% i = 2 %>
+                    <%else%>
+                      <% i = 3 %>
+                    <% end %>
+                    <% if reservations = ReservationTime.where(reservation_date:c.strftime('%Y-%m-%d')).order('start_time').limit(i) %>
+                      <% reservations.each do |reservation| %>
+                        <div>
+                          <span>・</span>
+                          <%= link_to(reservation.start_time.strftime('%H:%M'),reservation_time_path(id: @current_user.id,
+                                                                                                     date:c.strftime('%Y-%m-%d'),
+                                                                                                     start_time:reservation.start_time,
+                                                                                                     end_time:reservation.end_time,
+                                                                                                     reservation_thema:reservation.reservation_theme,
+                                                                                                     reservation_id:reservation.id),
+                                                                                                     :style => 'color:black')%>
+                          <%=reservation.reservation_theme%>
+                        </div>
+                      <% end %>
+                    <% end %>
+                    </th>
+                <% else %>
+                  <% if c.strftime('%Y-%m-%d').to_date.saturday? %>
+                    <th class = "days border-right border-left border-bottom border-dark" style ='background-color:#F4CDC9'>
+                  <% elsif c.strftime('%Y-%m-%d').to_date.sunday?%>
+                    <th class = "days border-right border-left border-bottom border-dark" style ='background-color:#D7E8FC'>
+                  <%else%>  
+                    <th class = "days border-right border-left border-bottom border-dark">
+                  <%end%> 
+                  <%= link_to(c.strftime('%d'),home_show_path(date: c.strftime('%Y-%m-%d')), :style => 'color:black' ) %>
+                    <div style ="<%='background-color:#0B8043; color:white' if holidayname = HolidayJapan.name(c.strftime('%Y-%m-%d').to_date)%>">
+                      <%= holidayname %>  
+                    </div>
+                    <% if holidayname %>
+                      <% i = 2 %>
+                    <%else%>
+                      <% i = 3 %>
+                    <% end %>
+                    <% if reservations = ReservationTime.where(reservation_date:c.strftime('%Y-%m-%d')).order('start_time').limit(i) %>
+                      <% reservations.each do |reservation| %>
+                        <div>
+                          <span>・</span>
+                          <%= link_to(reservation.start_time.strftime('%H:%M'),reservation_time_path(id: @current_user.id,
+                                                                                                     date:c.strftime('%Y-%m-%d'),
+                                                                                                     start_time:reservation.start_time,
+                                                                                                     end_time:reservation.end_time,
+                                                                                                     reservation_thema:reservation.reservation_theme,
+                                                                                                     reservation_id:reservation.id),
+                                                                                                     :style => 'color:black')%>
+                          <%=reservation.reservation_theme%>
+                        </div>
+                      <% end %>
+                    <% end %>
+                    </th>
+                <% end %>
+              <% end %>
+            </tr>
+            <% d = d + 1.week %>
+          <% end %>
+        </table>
+      </div>
+      <div class = "text-right">
+        <button type="button" class="btn btn-primary rounded-circle p-0 new_event_button">＋</button>
+      </div>
+    </div>
+    <div class = "col-2">
+      <div class = "new_event_form border border-dark" style = "<%= 'display:none' if controller.action_name == 'index' || controller.action_name == 'show'%>">
+        <div class="form-error clear">
+          <% @reservation_time.errors.full_messages.each do |message| %>           
+            <%= message %>
+            <%= @message %>
+          <% end %>
+          <%= @message %>
+        </div>
+        <%= form_with url: reservation_times_url, model: @reservation_time, :method => :post,local: true do |f| %>
+          <div><%= f.text_field :reservation_theme, placeholder: "テーマを入力" %></div>
+          <div class = 'mt-2'><%= f.text_field :reservation_date, type: 'date' %></div>
+          <div class = 'mt-2'>開始時刻<%= f.time_select :start_time, :minute_step => 5 %></div>
+          <div class = 'mt-2'>終了時刻<%= f.time_select :end_time, :minute_step => 5 %></div>
+          <div class = "text-right mt-2 ">
+          <%= f.submit '保存', class: 'event_save_button border border-dark' %>
+        </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-  <div class = "new_event_form border border-dark">
-   <input type="date"></input> <input type="date"></input>
-  </div>
-  <button type="button" class="btn btn-primary rounded-circle p-0 new_event_button">＋</button>
- </div>
 </div>

@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe SessionsController, type: :controller do
   describe 'sessions#create' do
-    subject { post :create, params: { name: 'sugihararen', password: 'ren19971121' } }
+    subject { post :create, params: { user: { name: 'sugihararen', password: 'ren19971121' } } }
 
     context '正常なログイン情報でログインした場合' do
       before do
@@ -24,11 +24,11 @@ RSpec.describe SessionsController, type: :controller do
   end
 
   describe 'sesions#destroy' do
-   context 'ログアウト'
+    context 'ログアウト'
     it 'ログイン画面へ遷移' do
-      session = {'user_id' => 'nil'}  
+      session = { 'user_id' => 'nil' }
       add_session(session)
-      expect(delete :destroy).to redirect_to login_url
+      expect(delete(:destroy)).to redirect_to login_url
     end
   end
 end

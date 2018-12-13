@@ -1,0 +1,29 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class = "col-2">
+    </div>
+    <div class = "col-8">
+      <div class = "new_event_form border border-dark" >
+        <%= form_with url: reservation_time_path, model: @reservation_time,:method => :put,local: true do |f| %>
+          <div class = 'mt-2'>
+            <%= f.text_field :reservation_date, type: 'date' ,value: @reservation_show_day %>
+          </div>
+          <div class = 'mt-2'>
+            <%= f.time_select :start_time, :minute_step => 5 , default:{ :hour => @reservation_start_time.to_time.strftime('%H'),:minute  => @reservation_start_time.to_time.strftime('%M')}%>~
+            <%= f.time_select :end_time, :minute_step => 5, default: {:hour => @reservation_end_time.to_time.strftime('%H'),:minute => @reservation_end_time.to_time.strftime('%M')}  %>
+            <%= f.text_field :reservation_theme, value: @reservation_theme %>
+          </div>
+          <div class = "text-right mt-2 ">
+          <%= f.submit '保存', class: 'event_save_button border border-dark' %>
+          </div>
+          <%= f.hidden_field :reservation_show_day, value: @reservation_show_day %>
+          <%= f.hidden_field :reservation_start_time, value: @reservation_start_time %>
+          <%= f.hidden_field :reservation_end_time, value: @reservation_end_time %>
+          <%= f.hidden_field :reservation_id, value: @reservation_id %>
+        <% end %>
+      </div>
+    </div>
+    <div class = "col-2">
+    </div>
+  </div>
+</div>
