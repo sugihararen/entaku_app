@@ -4,6 +4,10 @@ class UsersController < ApplicationController
   before_action :set_current_user, {only: [:index]}
   def new
     @user = User.new
+    if session[:user_id]
+      flash[:notice] = "すでにログインしています"
+      redirect_to home_index_path
+    end
   end
 
   def create
