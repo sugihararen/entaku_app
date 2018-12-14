@@ -140,10 +140,9 @@
     <div class = "col-2">
       <div class = "new_event_form border border-dark" style = "<%= 'display:none' if controller.action_name == 'index' || controller.action_name == 'show'%>">
         <div class="form-error clear">
-          <% @reservation_time.errors.full_messages.each do |message| %>           
-            <%= message %>
-          <% end %>
-          <%= @message %>
+          <%= @thema_error_message %>
+          <%= @date_error_message %>
+          <%= @time_error_message %>       
         </div>
         <%= form_with url: reservation_times_url, model: @reservation_time, :method => :post,local: true do |f| %>
           <div><%= f.text_field :reservation_theme, placeholder: "テーマを入力" %></div>
