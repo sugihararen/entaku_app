@@ -6,7 +6,7 @@ class ReservationTimesController < ApplicationController
     @reservation_time = ReservationTime.new(reservation_time_params)
     start_time = Time.zone.parse("#{reservation_time_params['start_time(1i)']}-#{reservation_time_params['start_time(2i)']}-#{reservation_time_params['start_time(3i)']} #{reservation_time_params['start_time(4i)']}:#{reservation_time_params['start_time(5i)']}:00")
     end_time = Time.zone.parse("#{reservation_time_params['end_time(1i)']}-#{reservation_time_params['end_time(2i)']}-#{reservation_time_params['end_time(3i)']} #{reservation_time_params['end_time(4i)']}:#{reservation_time_params['end_time(5i)']}:00")
-    if ReservationTime.where(reservation_date: reservation_time_params[:reservation_date])
+    if ReservationTime.where(reservation_date: reservation_time_params[:reservation_date]) 
       reservations = ReservationTime.where(reservation_date: reservation_time_params[:reservation_date])
       reservations.each do |reservation|
         if start_time < reservation.end_time && end_time > reservation.start_time
@@ -25,6 +25,19 @@ class ReservationTimesController < ApplicationController
           @reservation_show_day =  Date.today
           return render(home_index_path)
         end
+      end
+    end
+    unless ReservationTime.where(reservation_date: reservation_time_params[:reservation_date])
+      if start_time == end_time
+        @message = '開始時刻と終了時刻が同じです'
+        @today = Date.today
+        @reservation_show_day =  Date.today
+        return render(home_index_path)
+      elsif start_time > end_time
+        @message = '開始時刻が終了時刻より遅いです'
+        @today = Date.today
+        @reservation_show_day =  Date.today
+        return render(home_index_path)
       end
     end
     if @reservation_time.update(user_id: session[:user_id])
