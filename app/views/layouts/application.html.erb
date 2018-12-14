@@ -26,14 +26,13 @@
       </div>
 　      <ul class = "header-menus">
         <% if sign_in? %>
-         <li >
-          <%= link_to("ユーザー一覧",users_index_path, :class => 'menu') %>
+          <li >
+            <%= link_to("ユーザー一覧",users_index_path, :class => 'menu') %>
           </li>
           <li >
-          <%= link_to("ログアウト",logout_path, :class => 'menu', :method => :delete) %>
+            <%= link_to("ログアウト",logout_path, :class => 'menu', :method => :delete) %>
           </li>
-          <% else %>
-          <% end %>
+        <% end %>
         </ul> 
       </div><!---->
       <% if flash[:notice] %>

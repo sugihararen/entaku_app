@@ -17,8 +17,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    user = User.find(params[:user_id])
+    user.destroy
+    flash[:notice] = "ユーザーを削除しました"
+    redirect_to users_index_url
+  end
+
   def index
-    @users = User.all.order(:created_at).reverse_order
+    @users = User.all.order(:created_at)
   end
 
   private
