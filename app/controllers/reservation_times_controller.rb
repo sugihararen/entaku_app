@@ -42,10 +42,10 @@ class ReservationTimesController < ApplicationController
   end
 
   def show    
-    @reservation_show_day =  params[:date].to_date if params[:date]
-    @reservation_start_time = params[:start_time].to_time if params[:start_time]
-    @reservation_end_time = params[:end_time].to_time if params[:end_time]
-    @reservation_theme = params[:reservation_thema] if params[:reservation_thema]
+    @reservation_show_day =  params[:date].to_date 
+    @reservation_start_time = params[:start_time].to_time 
+    @reservation_end_time = params[:end_time].to_time 
+    @reservation_theme = params[:reservation_thema] 
     @reservation_id = params[:reservation_id]
     @holiday_name = HolidayJapan.name(@reservation_show_day)
     @reservations = ReservationTime.all
