@@ -26,9 +26,11 @@
       </div>
 　      <ul class = "header-menus">
         <% if sign_in? %>
-          <li >
-            <%= link_to("ユーザー一覧",users_index_path, :class => 'menu') %>
-          </li>
+          <% if @current_user.status == "管理者"  %>
+            <li >
+              <%= link_to("ユーザー一覧",users_index_path, :class => 'menu') %>
+            </li>
+          <% end %>
           <li >
             <%= link_to("ログアウト",logout_path, :class => 'menu', :method => :delete) %>
           </li>
