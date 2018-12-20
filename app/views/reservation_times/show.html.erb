@@ -1,9 +1,5 @@
 <% reservation = @reservations.find_by(reservation_date:@reservation_show_day,start_time:@reservation_start_time) %>
-<% if @users.find_by(id:reservation.user_id) %> 
-  <% user =  @users.find_by(id:reservation.user_id) %>
-<% else %>
-   <% delete_user = "削除済みのユーザー" %>
-<% end %>
+<% user =  @users.find_by(id:reservation.user_id) if @users.find_by(id:reservation.user_id) %>
 <div class="container-fluid clear">
   <div class="row">
     <div class = "col-3">
@@ -29,7 +25,7 @@
           <% end %>
           <div style = "font-size:20px" class = "border-top border-dark">
             <div class = "ml-1" >
-              予約者:<%= user.name if user %><%= delete_user %>
+              予約者:<%= user.name %>
             </div>
             <span>・</span>
             <%= @reservation_start_time.strftime('%H:%M')%>
