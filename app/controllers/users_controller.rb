@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :set_current_user, {only: [:index]}
+  before_action :set_current_user, only: [:index]
   def new
     @user = User.new
     if session[:user_id]
-      flash[:notice] = "すでにログインしています"
+      flash[:notice] = 'すでにログインしています'
       redirect_to home_index_path
     end
   end
@@ -24,9 +24,9 @@ class UsersController < ApplicationController
   def destroy
     user = User.find(params[:user_id])
     user.destroy
-    reservation = ReservationTime.where(user_id:params[:user_id])
+    reservation = ReservationTime.where(user_id: params[:user_id])
     reservation.delete_all
-    flash[:notice] = "ユーザーを削除しました"
+    flash[:notice] = 'ユーザーを削除しました'
     redirect_to users_index_url
   end
 

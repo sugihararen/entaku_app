@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
-class SessionsController < ApplicationController   
-
+class SessionsController < ApplicationController
   def new
     @user = User.new
     if session[:user_id]
-      flash[:notice] = "すでにログインしています"
+      flash[:notice] = 'すでにログインしています'
       redirect_to home_index_path
     end
   end
@@ -18,7 +17,7 @@ class SessionsController < ApplicationController
       redirect_to home_index_url
     else
       flash.now[:error] = 'ユーザー名またはパスワードが間違っています'
-      @user = User.new(name: session_params[:name],password:session_params[:password])
+      @user = User.new(name: session_params[:name], password: session_params[:password])
       render :new
     end
   end
@@ -30,6 +29,6 @@ class SessionsController < ApplicationController
   end
 
   def session_params
-    params.require(:user).permit(:password,:name)
+    params.require(:user).permit(:password, :name)
   end
 end
