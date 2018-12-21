@@ -10,7 +10,8 @@
           <% if reservation.user_id == session[:user_id] || @current_user.status == "管理者"  %>
             <div style = "font-size:30px">
               <%= @reservation_show_day.strftime("%Y/%m/%d")%>
-              <%= link_to("削除",reservation_time_path(reservation_show_day:@reservation_show_day,reservation_start_time:@reservation_start_time),:style => "float:right;color:black", :class => "mr-1",:method => :delete) %>
+              <%= "定期的な予約" if reservation.weekly == "1" %>
+              <%= link_to("削除",reservation_time_path(reservation_show_day:@reservation_show_day,reservation_start_time:@reservation_start_time,weekly:reservation.weekly),:style => "float:right;color:black", :class => "mr-1",:method => :delete) %>
               <%= link_to("編集",edit_reservation_time_path(reservation_show_day:@reservation_show_day,reservation_start_time:@reservation_start_time,reservation_end_time:@reservation_end_time,reservation_theme:@reservation_theme,reservation_id:@reservation_id),:style => "float:right;color:black", :class => "mr-1") %>
             </div>
           <% else %>

@@ -149,7 +149,7 @@
           <div class = 'mt-2'><%= f.text_field :reservation_date, type: 'date', value: Date.today%></div>
           <div class = 'mt-2'>開始時刻<%= f.time_select :start_time, :minute_step => 5%></div>
           <div class = 'mt-2'>終了時刻<%= f.time_select :end_time, :minute_step => 5 %></div>
-          <!--<input type="checkbox"><%= f.label '週ごとに予約する'%></input>-->
+          <div class = 'mt-2' ><%= f.check_box :weekly%> 週ごとに予約する<div>
           <div class = "text-right mt-2 ">
           <%= f.submit '保存', class: 'event_save_button border border-dark' %>
           </div>
