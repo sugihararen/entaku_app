@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ReservationTime < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, optional: true
   validates :reservation_theme, presence: true
   validates :reservation_date, presence: true
   validates :start_time, presence: true
