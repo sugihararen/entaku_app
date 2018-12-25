@@ -125,7 +125,8 @@ class ReservationTimesController < ApplicationController
         @reservation_time.destroy if @reservation_time    
       end
     end
-    if ReservationTime.find_by(reservation_date: params[:reservation_show_day], start_time: params[:reservation_start_time])
+    if params[:weekly] == '0'  
+      @reservation_time  = ReservationTime.find_by(reservation_date: params[:reservation_show_day], start_time: params[:reservation_start_time])
       @reservation_time.destroy if @reservation_time 
     end
     flash[:notice] = '予約を削除しました'
