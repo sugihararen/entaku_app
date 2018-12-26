@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe ReservationTime, type: :model do
-  it 'is valid with a reservation_thema and reservation_date and start_time and end_time ' do
+  it 'is valid with reservation_thema and reservation_date and start_time and end_time ' do
     reservationtime = ReservationTime.new(reservation_theme: 'sample',
                                           reservation_date: '2018-12-20',
                                           start_time: '2018-12-20 07:00:00',
