@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :user do
-    name 'sugihararen'
+    name                   'sugihararen'
     email                  'smple@dptr.jp'
     status                 '管理者'
     password               'ren19971121'
