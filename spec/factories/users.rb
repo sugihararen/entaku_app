@@ -7,6 +7,5 @@ FactoryBot.define do
     status                 '管理者'
     password               'ren19971121'
     password_confirmation  'ren19971121'
-
   end
 end

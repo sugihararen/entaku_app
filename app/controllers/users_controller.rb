@@ -1,8 +1,13 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
+  before_action :set_current_user, only: [:index]
   def new
     @user = User.new
+    if session[:user_id]
+      flash[:notice] = 'すでにログインしています'
+      redirect_to home_index_path
+    end
   end
 
   def create
@@ -16,8 +21,17 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    user = User.find(params[:user_id])
+    user.destroy
+    reservation = ReservationTime.where(user_id: params[:user_id])
+    reservation.delete_all
+    flash[:notice] = 'ユーザーを削除しました'
+    redirect_to users_index_url
+  end
+
   def index
-    @users = User.all.order(:created_at).reverse_order
+    @users = User.all.order(:created_at)
   end
 
   private

@@ -3,15 +3,18 @@
     <div class = "col-3">
     </div>
     <div class = "col-6">
-     <h3 class = "users_heading " >ユーザー一覧</h3>
+     <h3 class = "users_heading">ユーザー一覧</h3>
      <div class = "users_form border-top border-right border-left border-dark " >  
        <% @users.each do |user| %>
         <div class = "border-bottom border-dark" >
           ユーザー名:<%= user.name%>
           メールアドレス:<%= user.email%>
-          状態:<%= user.status%>
           id:<%= user.id%>
-        </div>
+          <%= user.status%>
+          <% if user.status != "管理者" && @current_user.status == "管理者" %>
+           <%= link_to("削除",users_destory_path(user_id:user.id),:method => :delete, :style =>'float:right;color:black' ,:class =>'mr-1') %>
+          <% end %>    
+        </div>  
       <% end %>
     </div>
     </div>

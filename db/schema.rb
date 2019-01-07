@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_05_031939) do
+ActiveRecord::Schema.define(version: 2018_12_21_061634) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,7 +22,8 @@ ActiveRecord::Schema.define(version: 2018_12_05_031939) do
     t.datetime "updated_at", null: false
     t.string "reservation_theme", comment: "予約テーマ"
     t.datetime "start_time", comment: "開始時刻"
-    t.datetime "end_time" ,comment: "終了時刻"
+    t.datetime "end_time"
+    t.string "weekly", comment: "週ごとの予約"
   end
 
   create_table "users", force: :cascade do |t|
