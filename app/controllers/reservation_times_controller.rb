@@ -120,14 +120,14 @@ class ReservationTimesController < ApplicationController
     if params[:weekly] == '1'
       for i in 0..55 do
         @reservation_time = ReservationTime.find_by(reservation_date: params[:reservation_show_day].to_date + i.week, start_time: params[:reservation_start_time], weekly: '1')
-        @reservation_time.destroy if @reservation_time
+        @reservation_time&.destroy
         @reservation_time = ReservationTime.find_by(reservation_date: params[:reservation_show_day].to_date - i.week, start_time: params[:reservation_start_time], weekly: '1')
-        @reservation_time.destroy if @reservation_time    
+        @reservation_time&.destroy
       end
     end
-    if params[:weekly] == '0'  
-      @reservation_time  = ReservationTime.find_by(reservation_date: params[:reservation_show_day], start_time: params[:reservation_start_time])
-      @reservation_time.destroy if @reservation_time 
+    if params[:weekly] == '0'
+      @reservation_time = ReservationTime.find_by(reservation_date: params[:reservation_show_day], start_time: params[:reservation_start_time])
+      @reservation_time&.destroy
     end
     flash[:notice] = '予約を削除しました'
     redirect_to home_index_path
