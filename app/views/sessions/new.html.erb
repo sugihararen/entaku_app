@@ -18,7 +18,12 @@
        </p>
         <%= f.submit 'ログイン', class: 'login border border-white mt-5' %>
       <% end %>
-        <%= link_to "新規登録", signup_path, class:'btn btn-default sign_up border border-dark mt-5 ' %>  
+        <p><%= link_to "新規登録", signup_path, class:'btn btn-default sign_up border border-dark mt-5 ' %></p>
+        <p class = "mt-5">
+          <%= link_to  googleuser_google_omniauth_authorize_path do %>
+           <%= image_tag "/btn_google_signin_light_normal_web.png" %>
+          <% end %>
+        </p>
       </div>
     </div>
   </div>

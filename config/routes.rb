@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  devise_for :googleusers, controllers: {
+    omniauth_callbacks: "googleusers/omniauth_callbacks"
+} 
   post   'login'          => 'sessions#create'
   get    'login'          => 'sessions#new'
   delete 'logout'         => 'sessions#destroy'
