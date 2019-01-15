@@ -15,6 +15,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = 'ユーザー登録が完了しました'
+      UserMailer.with(user: @user).welcome_email.deliver_later
       redirect_to home_index_url
     else
       render :new
